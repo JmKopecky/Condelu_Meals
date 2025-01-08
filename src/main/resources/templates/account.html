@@ -287,6 +287,9 @@
                         </div>
                         <p class="rating-message" th:text="${rating.getMessage()}"></p>
                     </div>
+                    <div class="rating-empty" th:if="${ratings.isEmpty()}">
+                        <h3>You have not placed any ratings yet.</h3>
+                    </div>
                 </div>
             </div>
 
