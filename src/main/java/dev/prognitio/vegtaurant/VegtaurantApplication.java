@@ -14,6 +14,10 @@ public class VegtaurantApplication {
 
 	public static void doDatabaseTestCase(MenuCategoryRepository menuCategoryRepository, MenuItemRepository menuItemRepository, FeaturedItemRepository featuredItemRepository, ProductRatingRepository productRatingRepository, AccountRepository accountRepository, RestaurantLocationRepository restaurantLocationRepository, PlacedOrderRepository placedOrderRepository) { //TODO delete before completion
 
+		if (menuCategoryRepository.count() != 0) {
+			return;
+		}
+
 		MenuCategory breakfast = new MenuCategory();
 		breakfast.setTitle("Breakfast");
 		menuCategoryRepository.save(breakfast);

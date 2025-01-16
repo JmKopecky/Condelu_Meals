@@ -72,6 +72,15 @@ a.link-hover {
 a.link-hover:hover {
   color: $accent;
 }
+italics {
+  font-family: $paragraphFamily;
+  margin: 0;
+  color: $primary;
+  font-style: italic;
+}
+a.breakable {
+  word-wrap: break-word;
+}
 
 
 li::marker {

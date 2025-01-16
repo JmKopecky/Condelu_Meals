@@ -19,10 +19,13 @@
     font-size: 3.25em;
   }
 
-  .library {
+  #info-citations-container, #copyright-checklist-container, #images-citations-container {
     display: flex;
     flex-flow: column;
     align-items: center;
     text-align: center;
+    gap: 2vh;
+    padding-left: 10vw;
+    padding-right: 10vw;
   }
 }

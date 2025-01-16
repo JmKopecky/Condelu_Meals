@@ -71,6 +71,17 @@ a.link-hover:hover {
   color: #00B837;
 }
 
+italics {
+  font-family: "Open Sans", sans;
+  margin: 0;
+  color: #EEEEEE;
+  font-style: italic;
+}
+
+a.breakable {
+  word-wrap: break-word;
+}
+
 li::marker {
   color: #EEEEEE;
 }
@@ -2292,11 +2303,14 @@ html *::-webkit-scrollbar-button {
   padding-bottom: 5vh;
   font-size: 3.25em;
 }
-#site-content-references .library {
+#site-content-references #info-citations-container, #site-content-references #copyright-checklist-container, #site-content-references #images-citations-container {
   display: flex;
   flex-flow: column;
   align-items: center;
   text-align: center;
+  gap: 2vh;
+  padding-left: 10vw;
+  padding-right: 10vw;
 }
 
 /*# sourceMappingURL=core.css.map */
