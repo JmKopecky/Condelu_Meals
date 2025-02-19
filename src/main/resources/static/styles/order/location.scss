@@ -58,7 +58,7 @@
       #enter-address {
         width: 100%;
         display: flex;
-        flex-flow: row;
+        flex-flow: column;
         align-items: center;
         justify-content: center;
         gap: 2em;
@@ -68,6 +68,9 @@
           border-radius: 1em;
           padding: 0.25em;
           text-align: center;
+          width: 80%;
+          margin-left: 10%;
+          margin-right: 10%;
         }
       }
       #select-address-from-list {
@@ -78,32 +81,48 @@
         height: 100%;
         width: 100%;
         overflow-y: scroll;
+        gap: 0.5em;
+        #location-selection-header {
+          padding-bottom: 0.5em;
+        }
         .location-tile {
           display: flex;
-          width: 100%;
+          width: 99%;
           flex-flow: row;
           justify-content: space-evenly;
           align-items: start;
           gap: 1em;
+          padding: 0.5%;
+          border-radius: 1em;
+          transition: background 0.5s ease-in-out;
           .location-address {
             width: 50%;
-            transition: color 0.5s;
+            transition: color 0.5s ease-in-out;
           }
           .location-city {
             width: 50%/3;
-            transition: color 0.5s;
+            transition: color 0.5s ease-in-out;
           }
           .location-state {
             width: 50%/3;
-            transition: color 0.5s;
+            transition: color 0.5s ease-in-out;
           }
           .location-zip {
             width: 50%/3;
-            transition: color 0.5s;
+            transition: color 0.5s ease-in-out;
           }
+        }
+        .location-tile:hover {
+          background: transparentize($accent, 0.5);
+        }
+        .locatio-tile:hover.selected {
+          background: $accent;
         }
         .location-tile.selected > * {
           color: $accent;
+        }
+        .location-tile:hover.selected > * {
+          color: $secondary;
         }
       }
     }

@@ -1,5 +1,4 @@
 TODO: 
-* Improve visuals on order location page
 * Add visual indicator for item rating area to continue scrolling down if ready
 * Add ability to rate the restaurant overall, adding a section for this on the home page.
 * Do something with the gradient on the home page, it wasn't well received by Mrs. James
