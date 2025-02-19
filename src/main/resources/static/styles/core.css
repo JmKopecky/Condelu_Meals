@@ -833,6 +833,9 @@ html *::-webkit-scrollbar-button {
 #site-content-home #approaches-container .approaches-tile .approaches-tile-content {
   padding: 1em;
 }
+#site-content-home #approaches-container .approaches-tile:hover {
+  background: #00b837;
+}
 @media (width <= 800px) {
   #site-content-home #approaches-container .approaches-tile {
     width: 40% !important;

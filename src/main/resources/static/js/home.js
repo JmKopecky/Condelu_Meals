@@ -59,12 +59,12 @@ function initHome() {
 function registerAnimations() {
 
     for (const elem of document.getElementsByClassName("approaches-tile")) {
-        elem.addEventListener("mouseover", () => {
+        elem.addEventListener("mouseenter", () => {
             //show
             toggleApproachesTile(elem, "show");
             elem.setAttribute("data-mouseover", "true");
         });
-        elem.addEventListener("mouseout", () => {
+        elem.addEventListener("mouseleave", () => {
             //hide
             elem.setAttribute("data-mouseover", "false");
             if (elem.getAttribute("data-approaches-tile-selected") !== "true") {

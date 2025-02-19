@@ -1,5 +1,4 @@
 TODO: 
-* Prevent odd hover anim behavior on the tiles on the home page
 * Improve visuals on order location page
 * Add visual indicator for item rating area to continue scrolling down if ready
 * Add ability to rate the restaurant overall, adding a section for this on the home page.

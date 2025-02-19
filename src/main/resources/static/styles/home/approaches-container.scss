@@ -46,6 +46,9 @@
       padding: 1em;
     }
   }
+  .approaches-tile:hover {
+    background: transparentize($accent, 0);
+  }
 
 
   @media (width <= 800px) {
