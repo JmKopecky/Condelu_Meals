@@ -40,19 +40,17 @@ function initSignon() {
 
 
 function signIn() {
-    let namePresent = document.getElementById("signon-name-input").value !== "";
     let emailPresent = document.getElementById("signon-email-input").value !== "";
     let pwPresent = document.getElementById("signon-password-input").value !== "";
 
-    if (namePresent && emailPresent && pwPresent) {
+    if (emailPresent && pwPresent) {
         if (!document.getElementById("signon-switch-label").children[0].checked) { //sign in
             fetch("/signon", {
                 method: "POST",
                 body: JSON.stringify({
                     "newaccount": false,
                     "email": document.getElementById("signon-email-input").value,
-                    "password": document.getElementById("signon-password-input").value,
-                    "name": document.getElementById("signon-name-input").value
+                    "password": document.getElementById("signon-password-input").value
                 }),
                 headers: {
                     "Content-type": "application/json; charset=UTF-8"
@@ -101,12 +99,10 @@ function signIn() {
         } else { //sign up, show extra info area.
             document.getElementById("signon-container").style.display = "none";
             document.getElementById("extra-info-container").style.display = "flex";
-            document.getElementById("signon-address-input").focus();
+            document.getElementById("signon-name-input").focus();
         }
     } else {
-        if (!namePresent) {
-            document.getElementById("signon-name-input").focus();
-        } else if (!emailPresent) {
+        if (!emailPresent) {
             document.getElementById("signon-email-input").focus();
         } else if (!pwPresent) {
             document.getElementById("signon-password-input").focus();

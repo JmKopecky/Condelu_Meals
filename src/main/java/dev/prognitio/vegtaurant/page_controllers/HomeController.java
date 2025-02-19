@@ -57,6 +57,7 @@ public class HomeController {
         ArrayList<MenuItem> topHalfMenuItems = new ArrayList<>();
         menuItemRepository.findAll().forEach(topHalfMenuItems::add);
         MenuItem.sort(topHalfMenuItems, "rating");
+        Collections.reverse(topHalfMenuItems);
         if (topHalfMenuItems.size() > 8) {
             model.addAttribute("tophalfmenuitems", topHalfMenuItems.subList(0, topHalfMenuItems.size() / 2));
         } else {

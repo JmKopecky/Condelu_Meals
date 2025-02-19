@@ -116,12 +116,6 @@
         <form id="signon-container" onsubmit="return false;">
             <h2 id="signon-header">Sign In</h2>
             <p id="signon-text">Sign in to your account to dramatically improve your shopping experience with us!</p>
-            <div id="signon-name-container" class="signon-container">
-                <label id="signon-name-label" class="label-signon">
-                    Full Name
-                </label>
-                <input type="text" id="signon-name-input" autocomplete="name">
-            </div>
             <div id="signon-email-container" class="signon-container">
                 <label id="signon-email-label" class="label-signon">
                     Email
@@ -141,6 +135,13 @@
 
         <form id="extra-info-container" onsubmit="return false;">
             <!-- Collect info on user: payment info-->
+            <div id="signon-name-container" class="signon-container">
+                <label id="signon-name-label" class="label-signon">
+                    Name
+                </label>
+                <input type="text" id="signon-name-input" autocomplete="name">
+            </div>
+
             <div id="signon-address-container" class="signon-container">
                 <label id="signon-address-label" class="label-signon">
                     Address

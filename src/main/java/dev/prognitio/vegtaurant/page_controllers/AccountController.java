@@ -160,12 +160,17 @@ public class AccountController {
 
         try {
             AuthTokens token = AuthTokens.getBySessionToken(authTokensRepository, sessionToken);
+
+            //todo ip address auth broken on occasion, removed for user convenience during competition
+            acc = AuthTokens.retrieveWithSessionToken(authTokensRepository, sessionToken);
+            /*
             if (ipAddress.equals(token.getIpAddress())) {
                 acc = AuthTokens.retrieveWithSessionToken(authTokensRepository, sessionToken);
             } else { //connected with different ip address, force to sign in again
                 AuthTokens.deleteSessionToken(authTokensRepository, token.getToken()); //remove token
                 throw new AuthenticationException("Session token invalid");
             }
+             */
 
         } catch (Exception e) {
             System.out.println(sessionToken);

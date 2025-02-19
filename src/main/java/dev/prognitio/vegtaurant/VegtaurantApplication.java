@@ -515,16 +515,16 @@ public class VegtaurantApplication {
 
 		RestaurantLocation location1 = new RestaurantLocation();
 		location1.setAddressLine("1234 Lorem Ipsum Lane");
-		location1.setCity("Baytown");
+		location1.setCity("Mars");
 		location1.setState("Texas");
-		location1.setZipCode("77521");
+		location1.setZipCode("99999");
 		restaurantLocationRepository.save(location1);
 
 		RestaurantLocation location2 = new RestaurantLocation();
-		location2.setAddressLine("4321 Goose Creek Memorial");
-		location2.setCity("Baytown");
+		location2.setAddressLine("4321 Amazing Road");
+		location2.setCity("Luna");
 		location2.setState("Texas");
-		location2.setZipCode("77522");
+		location2.setZipCode("99999");
 		restaurantLocationRepository.save(location2);
 
 

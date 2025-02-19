@@ -1,3 +1,18 @@
+TODO: 
+* Remove name from sign in (not sign up)
+* I forgot to add logout
+* Improve first load time (animations)
+* Prevent odd hover anim behavior on the tiles on the home page
+* Improve visuals on order location page
+* Add visual indicator for item rating area to continue scrolling down if ready
+* Add ability to rate the restaurant overall, adding a section for this on the home page. 
+* After all this is done, update work log
+* Do something with the gradient on the home page, it wasn't well received by Mrs. James
+* Odd transition going to cart without anything contained, fix it
+
+
+
+
 Used libraries: 
 * FontAwesome
 * Spring Boot

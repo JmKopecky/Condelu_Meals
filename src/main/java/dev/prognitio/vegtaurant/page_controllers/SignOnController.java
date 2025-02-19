@@ -61,7 +61,7 @@ public class SignOnController {
             shouldSave = node.get("newaccount").asBoolean();
             if (!shouldSave) {
                 //authenticate sign on.
-                account = Account.authenticate(accountRepository, node.get("email").asText(), node.get("name").asText(), node.get("password").asText());
+                account = Account.authenticate(accountRepository, node.get("email").asText(), node.get("password").asText());
             } else {
                 account = new Account();
                 account.setEmail(node.get("email").asText());
