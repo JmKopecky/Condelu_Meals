@@ -4,6 +4,20 @@ function initAccount() {
 }
 
 
+
+function logout() {
+    fetch("/account/logout", {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    }).then(() => {
+        document.cookie = "sessiontoken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        location.reload()
+    });
+}
+
+
 function mobileNavAccordionAccount(mode) {
     if (mode === 'show') {
         document.getElementById("nav-accordion-panel").style.display = "flex";

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.prognitio.vegtaurant.data_storage.*;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -149,6 +150,21 @@ public class AccountController {
 
 
 
+    @PostMapping("/account/logout")
+    public ResponseEntity<String> logout(@CookieValue(value = "sessiontoken", defaultValue = "null") String sessionToken) {
+        HttpHeaders cookieHeaders = new HttpHeaders();
+        cookieHeaders.add("Clear-Site-Data", "cookies");
+
+        if (AuthTokens.deleteSessionToken(authTokensRepository, sessionToken)) {
+            return new ResponseEntity<String>("deleted", cookieHeaders, HttpStatus.OK);
+        }
+
+        return new ResponseEntity<String>("token_not_recognized", cookieHeaders, HttpStatus.OK);
+    }
+
+
+
+
     public static Account retrieveAccountFromToken(String sessionToken, String ipAddress, AuthTokensRepository authTokensRepository) throws AuthenticationException {
 
         Account acc;
@@ -184,4 +200,7 @@ public class AccountController {
 
         throw new AuthenticationException("Account was null when authenticating");
     }
+
+
+
 }

@@ -191,6 +191,7 @@
                     <input type="url" id="setting-picture-input" th:value="${account.getImageUrl()}">
                 </div>
                 <button onclick="updateAccountSettings()">Edit</button>
+                <button onclick="logout()">Logout</button>
             </form>
 
             <form class="setting-panel" style="display: none;" id="panel-billing" onsubmit="return false;">
