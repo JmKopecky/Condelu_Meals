@@ -82,7 +82,7 @@ function showTitle(thenEnd) {
     }, titleTime * 1000);
 }
 
-let preloaderTime = 2;
+let preloaderTime = 1;
 let documentReady = false;
 let timeReady = false;
 let animationblocking = false;

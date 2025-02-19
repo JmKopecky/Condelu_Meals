@@ -235,17 +235,17 @@ function runStartupAnims(page) {
         //home page gradient
         if (window.matchMedia("(width <= 775px)").matches) {
             let targetBG = "linear-gradient(to bottom, #111111 0%, rgba(17, 17, 17, 0.6))";
-            gsap.to(document.getElementById("hero-bgimg-overlay"), {background: targetBG, duration: 0.5, ease: "power1.inout", delay:2});
+            gsap.to(document.getElementById("hero-bgimg-overlay"), {background: targetBG, duration: 0.5, ease: "power1.inout", delay:1.25});
         } else {
             let targetBG = "linear-gradient(to right, #111111 0%, rgba(17, 17, 17, 0.6))";
-            gsap.to(document.getElementById("hero-bgimg-overlay"), {background: targetBG, duration: 0.5, ease: "power1.inout", delay:2});
+            gsap.to(document.getElementById("hero-bgimg-overlay"), {background: targetBG, duration: 0.5, ease: "power1.inout", delay:1.25});
         }
         gsap.to(document.getElementById("hero-interactable").getElementsByTagName("h1")[0], {
-            opacity: 1, y: 0, duration: 0.5, ease: "power1.inout", delay: 1});
+            opacity: 1, y: 0, duration: 0.5, ease: "power1.inout", delay: 0.25});
         gsap.to(document.getElementById("hero-interactable").getElementsByTagName("h6")[0], {
-            opacity: 1, y:0, duration: 0.5, ease: "power1.inout", delay: 1.25});
+            opacity: 1, y:0, duration: 0.5, ease: "power1.inout", delay: 0.5});
         gsap.to(document.getElementById("hero-button-container").getElementsByTagName("button"), {
-            opacity: 1, y:0, duration: 0.5, ease: "power1.inout", delay: 1.5, stagger: 0.15});
+            opacity: 1, y:0, duration: 0.5, ease: "power1.inout", delay: 0.75, stagger: 0.15});
     }
 
 
