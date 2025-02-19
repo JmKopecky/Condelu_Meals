@@ -60,6 +60,27 @@
   justify-content: center;
   gap: 2em;
   text-align: center;
+  width: 80%;
+  #site-rating-input {
+    display: flex;
+    flex-flow: row;
+    gap: 5vw;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    textarea {
+      background: $secondary;
+      border: 1px solid $accent;
+      border-radius: 1em;
+      padding: 0.25em;
+      flex: 1;
+      font-family: $paragraphFamily;
+      color: $primary;
+    }
+    textarea::placeholder {
+      color: $primary;
+    }
+  }
 }
 
 

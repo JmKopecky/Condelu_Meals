@@ -1,6 +1,6 @@
 TODO: 
-* Add ability to rate the restaurant overall, adding a section for this on the home page.
-* Do something with the gradient on the home page, it wasn't well received by Mrs. James
+* Added section appropriate for users to rate the entire site, but pending the backend functionality to process this request.
+  * Add ability to see these ratings in the home page.
 * Add rewards system
 * After all this is done, update work log
 

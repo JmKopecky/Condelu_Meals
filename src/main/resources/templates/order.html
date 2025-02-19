@@ -233,6 +233,10 @@
                     <i class="fa-solid fa-star rate-star-icon" data-rating="4" onclick="generalRating(this);"></i>
                     <i class="fa-solid fa-star rate-star-icon" data-rating="5" onclick="generalRating(this);"></i>
                 </div>
+                <div id="site-rating-input">
+                    <label for="site-wide-review-content">More Details: </label>
+                    <textarea id="site-wide-review-content" placeholder="Review us!" contenteditable="true"></textarea>
+                </div>
             </div>
             <div id="order-review-panel" th:if="${!account.equals('noaccount')}">
                 <i class="fa-solid fa-arrow-down fa-beat"></i>

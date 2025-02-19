@@ -174,8 +174,6 @@ function genericRatingProcessor(caller) {
 
 function populateItemsForReview() {
 
-    console.log("HI");
-
     if (document.getElementById("order-review-panel") === null) {
         return;
     }

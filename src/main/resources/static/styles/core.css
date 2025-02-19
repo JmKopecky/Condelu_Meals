@@ -2135,6 +2135,27 @@ html *::-webkit-scrollbar-button {
   justify-content: center;
   gap: 2em;
   text-align: center;
+  width: 80%;
+}
+#site-content-order #general-rating-panel #site-rating-input {
+  display: flex;
+  flex-flow: row;
+  gap: 5vw;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+}
+#site-content-order #general-rating-panel #site-rating-input textarea {
+  background: #111111;
+  border: 1px solid #00B837;
+  border-radius: 1em;
+  padding: 0.25em;
+  flex: 1;
+  font-family: "Open Sans", sans;
+  color: #EEEEEE;
+}
+#site-content-order #general-rating-panel #site-rating-input textarea::placeholder {
+  color: #EEEEEE;
 }
 #site-content-order #order-review-panel {
   display: flex;
