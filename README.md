@@ -1,7 +1,6 @@
 TODO: 
 * Add ability to rate the restaurant overall, adding a section for this on the home page.
 * Do something with the gradient on the home page, it wasn't well received by Mrs. James
-* Odd transition going to cart without anything contained, fix it 
 * Add rewards system
 * After all this is done, update work log
 
