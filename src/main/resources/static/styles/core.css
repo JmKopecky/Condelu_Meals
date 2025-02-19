@@ -1911,6 +1911,11 @@ html *::-webkit-scrollbar-button {
   justify-content: center;
   gap: 2em;
 }
+#site-content-order #location-container #location-float-align #location-address-selection #enter-address label {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
 #site-content-order #location-container #location-float-align #location-address-selection #enter-address input {
   background: none;
   border: 1px solid #00B837;
@@ -1933,6 +1938,7 @@ html *::-webkit-scrollbar-button {
 }
 #site-content-order #location-container #location-float-align #location-address-selection #select-address-from-list #location-selection-header {
   padding-bottom: 0.5em;
+  text-align: center;
 }
 #site-content-order #location-container #location-float-align #location-address-selection #select-address-from-list .location-tile {
   display: flex;
@@ -1940,7 +1946,8 @@ html *::-webkit-scrollbar-button {
   flex-flow: row;
   justify-content: space-evenly;
   align-items: start;
-  gap: 1em;
+  gap: 0.25em;
+  flex-wrap: wrap;
   padding: 0.5%;
   border-radius: 1em;
   transition: background 0.5s ease-in-out;
@@ -2086,7 +2093,7 @@ html *::-webkit-scrollbar-button {
   justify-content: center;
   gap: 5vh;
   align-items: center;
-  height: 60vh;
+  height: 50vh;
 }
 #site-content-order #final-order-info-display div {
   display: flex;

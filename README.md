@@ -1,5 +1,4 @@
 TODO: 
-* Add visual indicator for item rating area to continue scrolling down if ready
 * Add ability to rate the restaurant overall, adding a section for this on the home page.
 * Do something with the gradient on the home page, it wasn't well received by Mrs. James
 * Odd transition going to cart without anything contained, fix it 
@@ -76,3 +75,4 @@ Broad Technical Ideas:
 * 12/18/24: 6 hrs (order and signon animations, bug fixes, compiled menu options)
 * 12/19/24: 4 hrs (debugged mobile layouts sitewide)
 * 1/8/25: 3 hrs (documentation, work log)
+* //TODO: 2/19/25: 1 hr + govt + meeting (assorted improvements and bug fixes to animations and visual fidelity)

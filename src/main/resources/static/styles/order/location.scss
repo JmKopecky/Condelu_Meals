@@ -62,6 +62,11 @@
         align-items: center;
         justify-content: center;
         gap: 2em;
+        label {
+          display: block;
+          width: 100%;
+          text-align: center;
+        }
         input {
           background: none;
           border: 1px solid $accent;
@@ -84,6 +89,7 @@
         gap: 0.5em;
         #location-selection-header {
           padding-bottom: 0.5em;
+          text-align: center;
         }
         .location-tile {
           display: flex;
@@ -91,7 +97,8 @@
           flex-flow: row;
           justify-content: space-evenly;
           align-items: start;
-          gap: 1em;
+          gap: 0.25em;
+          flex-wrap: wrap;
           padding: 0.5%;
           border-radius: 1em;
           transition: background 0.5s ease-in-out;
