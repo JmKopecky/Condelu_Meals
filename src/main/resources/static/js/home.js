@@ -91,7 +91,7 @@ function registerAnimations() {
     if (document.getElementById("discount-button") !== null) {
         targets.push(document.getElementById("discount-button"));
     }
-    targets.push(document.getElementById("top-ratings-header"));
+    targets.push(document.getElementById("restaurant-rating-header"));
     for (const e of document.getElementsByClassName("rating-tile")) {targets.push(e)}
     targets.push(document.getElementById("member-benefit-promo"));
     targets.push(document.getElementById("approaches-header"));
@@ -108,7 +108,32 @@ function registerAnimations() {
     gsap.to(document.getElementsByClassName("approaches-tile"), {
         y: 0, opacity: 1, duration: 0.5, ease: "power1.inout", delay: 0.5, stagger:0.1, scrollTrigger:{
             trigger: document.getElementById("approaches-header"), start:"top 90%", scrub:1, end: "top 70%"}});
+
+    startRestaurantReviewInfiniteScroll();
 }
+
+
+function startRestaurantReviewInfiniteScroll() {
+    console.log("ran");
+    let root = document.getElementById("restaurant-rating-tiles-container");
+    //so move the root the distance of one tile, then move that tile to the end of root. Set the pos back to 0. Continue ad infinatem
+    //one tile's width is 20vw, and the gap is 5vw between two (so use 2.5 as the actual gap)
+    let timeline = gsap.timeline({repeat: -1});
+    timeline.to(root, {
+        x:"-25vw",
+        duration: 5,
+        ease: "linear",
+        onComplete: () => {
+            let first = root.firstElementChild;
+            root.removeChild(first);
+            root.appendChild(first);
+        }
+    });
+    timeline.set(root, {
+        x: "0",
+    });
+}
+
 
 function toggleApproachesTile(tile, mode) {
     if (mode === "show") {

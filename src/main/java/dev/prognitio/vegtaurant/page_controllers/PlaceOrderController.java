@@ -1,5 +1,7 @@
 package dev.prognitio.vegtaurant.page_controllers;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.prognitio.vegtaurant.data_storage.*;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.naming.AuthenticationException;
+import java.io.IOException;
 import java.time.LocalDateTime;
 
 @Controller
@@ -20,11 +23,13 @@ public class PlaceOrderController {
     private final RestaurantLocationRepository locationRepository;
     private final AuthTokensRepository authTokensRepository;
     private final PlacedOrderRepository placedOrderRepository;
+    private final RestaurantRatingRepository restaurantRatingRespository;
 
-    public PlaceOrderController(RestaurantLocationRepository locationRepository, AuthTokensRepository authTokensRepository, PlacedOrderRepository placedOrderRepository) {
+    public PlaceOrderController(RestaurantLocationRepository locationRepository, AuthTokensRepository authTokensRepository, PlacedOrderRepository placedOrderRepository, RestaurantRatingRepository restaurantRatingRespository) {
         this.locationRepository = locationRepository;
         this.authTokensRepository = authTokensRepository;
         this.placedOrderRepository = placedOrderRepository;
+        this.restaurantRatingRespository = restaurantRatingRespository;
     }
 
 
@@ -70,6 +75,47 @@ public class PlaceOrderController {
         placedOrderRepository.save(order);
 
         System.out.println(data);
+
+        return new ResponseEntity<>("success", HttpStatus.OK);
+    }
+
+
+    @PostMapping("/order/restaurantrating")
+    public ResponseEntity<String> rateRestaurant(Model model, @RequestBody String data, HttpServletRequest request, @CookieValue(value = "sessiontoken", defaultValue = "null") String sessionToken) {
+
+        Account acc;
+
+        try {
+            acc = AccountController.retrieveAccountFromToken(sessionToken, request.getRemoteAddr(), authTokensRepository);
+        } catch (AuthenticationException e) {
+            return new ResponseEntity<>("failed", HttpStatus.OK);
+        }
+        model.addAttribute("headerpicturelink", acc.getImageUrl());
+
+        int ratingValue;
+        String ratingStr;
+
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode node = mapper.readTree(data);
+            ratingValue = node.get("ratingvalue").asInt();
+            ratingStr = node.get("ratingcontent").asText();
+        } catch (IOException e) {
+            return new ResponseEntity<>("failed", HttpStatus.OK);
+        }
+
+        RestaurantRating rating = new RestaurantRating();
+        if (ratingValue > 5) {
+            rating.setRating(5);
+        } else if (ratingValue < 1) {
+            rating.setRating(1);
+        } else {
+            rating.setRating(ratingValue);
+        }
+
+        rating.setMessage(ratingStr);
+        rating.setReviewer(acc);;
+        restaurantRatingRespository.save(rating);
 
         return new ResponseEntity<>("success", HttpStatus.OK);
     }

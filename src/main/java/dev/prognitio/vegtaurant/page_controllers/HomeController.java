@@ -24,8 +24,9 @@ public class HomeController {
     private final RestaurantLocationRepository restaurantLocationRepository;
     private final PlacedOrderRepository placedOrderRepository;
     private final AuthTokensRepository authTokensRepository;
+    private final RestaurantRatingRepository restaurantRatingRepository;
 
-    public HomeController(MenuItemRepository menuItemRepository, MenuCategoryRepository menuCategoryRepository, AccountRepository accountRepository, FeaturedItemRepository featuredItemRepository, ProductRatingRepository productRatingRepository, RestaurantLocationRepository restaurantLocationRepository, PlacedOrderRepository placedOrderRepository, AuthTokensRepository authTokensRepository) {
+    public HomeController(MenuItemRepository menuItemRepository, MenuCategoryRepository menuCategoryRepository, AccountRepository accountRepository, FeaturedItemRepository featuredItemRepository, ProductRatingRepository productRatingRepository, RestaurantLocationRepository restaurantLocationRepository, PlacedOrderRepository placedOrderRepository, AuthTokensRepository authTokensRepository, RestaurantRatingRepository restaurantRatingRepository) {
         //if encountering errors, make sure to drop both tables first.
         this.menuItemRepository = menuItemRepository;
         this.menuCategoryRepository = menuCategoryRepository;
@@ -36,6 +37,7 @@ public class HomeController {
         this.placedOrderRepository = placedOrderRepository;
         this.authTokensRepository = authTokensRepository;
         VegtaurantApplication.doDatabaseTestCase(menuCategoryRepository, menuItemRepository, featuredItemRepository, productRatingRepository, accountRepository, restaurantLocationRepository, placedOrderRepository);
+        this.restaurantRatingRepository = restaurantRatingRepository;
     }
 
 
@@ -90,6 +92,16 @@ public class HomeController {
         model.addAttribute("topratings", ratings.subList(0, Math.min(ratings.size(), numRatings)));
 
 
+        ArrayList<RestaurantRating> restaurantRatings = new ArrayList<>();
+        for (RestaurantRating rating : restaurantRatingRepository.findAll()) {
+            if (rating.getRating() > 3) {
+                restaurantRatings.add(rating);
+            }
+        }
+        Collections.sort(restaurantRatings);
+        List<RestaurantRating> sortedRestaurantRatingList = restaurantRatings.subList(0, Math.min(restaurantRatings.size(), 20));
+
+        model.addAttribute("restaurantratings", restaurantRatings);
 
 
         return "home";

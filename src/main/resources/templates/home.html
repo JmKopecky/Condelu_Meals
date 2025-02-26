@@ -208,9 +208,28 @@ Requisite content:
         </div>
 
 
+        <div id="restaurant-rating-display">
+            <h1 id="restaurant-rating-header">What Our Customers Think</h1>
+            <div id="restaurant-rating-autoscroll-area">
+                <div id="restaurant-rating-tiles-container">
+                    <div class="restaurant-rating-tile" th:each="tile:${restaurantratings}">
+                        <div class="restaurant-rating-tile-metadata">
+                            <h6 class="restaurant-rating-tile-name" th:text="${tile.getReviewer().getName()}"></h6>
+                            <h6 class="restaurant-rating-tile-val" th:text="${': ' + tile.getRating() + '/5'}"></h6>
+                        </div>
+
+                        <div class="restaurant-rating-tile-text-centerer">
+                            <p class="restaurant-rating-tile-content" th:text="${tile.getMessage()}"></p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <div id="top-ratings-display">
             <!-- Future: add a system to retrieve recent 5-star reviews and display them. -->
-            <h1 id="top-ratings-header">Top Ratings</h1>
             <div class="rating-tile" th:each="ratingTile,iterStat:${topratings}" th:classappend="${iterStat.even} ? 'rating-right' : 'rating-left'">
                 <h6 th:text="|${ratingTile.getReviewer().getName()} rated ${ratingTile.getProduct().getLabel()} ${ratingTile.getRating()}/5, saying:|"></h6>
                 <p th:text="${ratingTile.getMessage()}"></p>

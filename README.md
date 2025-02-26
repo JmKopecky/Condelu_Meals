@@ -1,6 +1,4 @@
 TODO: 
-* Added section appropriate for users to rate the entire site, but pending the backend functionality to process this request.
-  * Add ability to see these ratings in the home page.
 * Add rewards system
 * After all this is done, update work log
 

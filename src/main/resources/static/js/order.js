@@ -222,6 +222,27 @@ function populateItemsForReview() {
 
 function submitFeedback() {
 
+    let restaurantRating = document.getElementById("site-rating-input").getElementsByTagName("textarea")[0].value;
+    let ratingVal = document.getElementById("gen-rating-selection").getAttribute("data-chosenrating");
+
+    if (/[1-5]/.test(ratingVal) && restaurantRating.length > 0) {
+        fetch("/order/restaurantrating", {
+            method: "POST",
+            body: JSON.stringify({
+                "ratingvalue": parseInt(ratingVal),
+                "ratingcontent": restaurantRating
+            }),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        }).then((r) => {
+            r.text().then(data => {
+                console.log(data);
+            })
+        });
+    }
+
+
     let batchRatings = [];
 
     for (const tile of document.getElementsByClassName("order-review-tile")) {
