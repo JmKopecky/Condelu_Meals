@@ -4,6 +4,8 @@ import dev.prognitio.vegtaurant.data_storage.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.HashMap;
+
 @SpringBootApplication
 public class VegtaurantApplication {
 
@@ -12,7 +14,7 @@ public class VegtaurantApplication {
 	}
 
 
-	public static void doDatabaseTestCase(MenuCategoryRepository menuCategoryRepository, MenuItemRepository menuItemRepository, FeaturedItemRepository featuredItemRepository, ProductRatingRepository productRatingRepository, AccountRepository accountRepository, RestaurantLocationRepository restaurantLocationRepository, PlacedOrderRepository placedOrderRepository) { //TODO delete before completion
+	public static void doDatabaseTestCase(MenuCategoryRepository menuCategoryRepository, MenuItemRepository menuItemRepository, FeaturedItemRepository featuredItemRepository, ProductRatingRepository productRatingRepository, AccountRepository accountRepository, RestaurantLocationRepository restaurantLocationRepository, PlacedOrderRepository placedOrderRepository, RestaurantRatingRepository restaurantRating) { //TODO delete before completion
 
 		if (menuCategoryRepository.count() != 0) {
 			return;
@@ -39,6 +41,9 @@ public class VegtaurantApplication {
 		menuCategoryRepository.save(desserts);
 
 
+		HashMap<String, String> nutritionalFacts;
+
+
 		//note drinks
 		MenuItem waterOption = new MenuItem();
 		waterOption.setLabel("Water");
@@ -49,6 +54,11 @@ public class VegtaurantApplication {
 		waterOption.setCategory(drinks);
 		waterOption.setAveragerating(5);
 		waterOption.setTotalratings(1);
+		waterOption.setNutritionFacts(new HashMap<>());
+		waterOption.getNutritionFacts().put("Calories", "0");
+		waterOption.getNutritionFacts().put("Carbs", "0g");
+		waterOption.getNutritionFacts().put("Sugar", "0g");
+		waterOption.getNutritionFacts().put("Protein", "0g");
 		menuItemRepository.save(waterOption);
 
 
@@ -61,6 +71,11 @@ public class VegtaurantApplication {
 		tea1.setCategory(drinks);
 		tea1.setAveragerating(5);
 		tea1.setTotalratings(1);
+		tea1.setNutritionFacts(new HashMap<>());
+		tea1.getNutritionFacts().put("Calories", "2");
+		tea1.getNutritionFacts().put("Carbs", "1g");
+		tea1.getNutritionFacts().put("Sugar", "0g");
+		tea1.getNutritionFacts().put("Protein", "0g");
 		menuItemRepository.save(tea1);
 
 		MenuItem tea2 = new MenuItem();
@@ -72,6 +87,10 @@ public class VegtaurantApplication {
 		tea2.setCategory(drinks);
 		tea2.setAveragerating(5);
 		tea2.setTotalratings(1);
+		tea2.setNutritionFacts(new HashMap<>());
+		tea2.getNutritionFacts().put("Calories", "73");
+		tea2.getNutritionFacts().put("Sugar", "5g");
+		tea2.getNutritionFacts().put("Protein", "0g");
 		menuItemRepository.save(tea2);
 
 		MenuItem tea3 = new MenuItem();
@@ -83,6 +102,10 @@ public class VegtaurantApplication {
 		tea3.setCategory(drinks);
 		tea3.setAveragerating(5);
 		tea3.setTotalratings(1);
+		tea3.setNutritionFacts(new HashMap<>());
+		tea3.getNutritionFacts().put("Calories", "3");
+		tea3.getNutritionFacts().put("Sugar", "0g");
+		tea3.getNutritionFacts().put("Protein", "0g");
 		menuItemRepository.save(tea3);
 
 		MenuItem applejuice = new MenuItem();
@@ -94,6 +117,10 @@ public class VegtaurantApplication {
 		applejuice.setCategory(drinks);
 		applejuice.setAveragerating(5);
 		applejuice.setTotalratings(1);
+		applejuice.setNutritionFacts(new HashMap<>());
+		applejuice.getNutritionFacts().put("Calories", "98");
+		applejuice.getNutritionFacts().put("Protein", "0g");
+		applejuice.getNutritionFacts().put("Sugar", "0g");
 		menuItemRepository.save(applejuice);
 
 		MenuItem orangejuice = new MenuItem();
@@ -105,6 +132,10 @@ public class VegtaurantApplication {
 		orangejuice.setCategory(drinks);
 		orangejuice.setAveragerating(5);
 		orangejuice.setTotalratings(1);
+		orangejuice.setNutritionFacts(new HashMap<>());
+		orangejuice.getNutritionFacts().put("Calories", "113");
+		orangejuice.getNutritionFacts().put("Protein", "0g");
+		orangejuice.getNutritionFacts().put("Sugar", "0g");
 		menuItemRepository.save(orangejuice);
 
 		MenuItem grapejuice = new MenuItem();
@@ -116,6 +147,10 @@ public class VegtaurantApplication {
 		grapejuice.setCategory(drinks);
 		grapejuice.setAveragerating(5);
 		grapejuice.setTotalratings(1);
+		grapejuice.setNutritionFacts(new HashMap<>());
+		grapejuice.getNutritionFacts().put("Calories", "153");
+		grapejuice.getNutritionFacts().put("Protein", "1g");
+		grapejuice.getNutritionFacts().put("Sugar", "0g");
 		menuItemRepository.save(grapejuice);
 
 		//note: breakfast
@@ -128,6 +163,11 @@ public class VegtaurantApplication {
 		eggBreakfastSandwich.setCategory(breakfast);
 		eggBreakfastSandwich.setAveragerating(5);
 		eggBreakfastSandwich.setTotalratings(1);
+		eggBreakfastSandwich.setNutritionFacts(new HashMap<>());
+		eggBreakfastSandwich.getNutritionFacts().put("Calories", "242");
+		eggBreakfastSandwich.getNutritionFacts().put("Carbs", "21g");
+		eggBreakfastSandwich.getNutritionFacts().put("Fat", "7g");
+		eggBreakfastSandwich.getNutritionFacts().put("Protein", "12g");
 		menuItemRepository.save(eggBreakfastSandwich);
 
 		MenuItem frenchToast = new MenuItem();
@@ -139,6 +179,11 @@ public class VegtaurantApplication {
 		frenchToast.setCategory(breakfast);
 		frenchToast.setAveragerating(5);
 		frenchToast.setTotalratings(1);
+		frenchToast.setNutritionFacts(new HashMap<>());
+		frenchToast.getNutritionFacts().put("Calories", "121");
+		frenchToast.getNutritionFacts().put("Carbs", "19g");
+		frenchToast.getNutritionFacts().put("Fat", "6g");
+		frenchToast.getNutritionFacts().put("Protein", "11g");
 		menuItemRepository.save(frenchToast);
 
 		MenuItem waffles = new MenuItem();
@@ -150,6 +195,11 @@ public class VegtaurantApplication {
 		waffles.setCategory(breakfast);
 		waffles.setAveragerating(5);
 		waffles.setTotalratings(1);
+		waffles.setNutritionFacts(new HashMap<>());
+		waffles.getNutritionFacts().put("Calories", "92");
+		waffles.getNutritionFacts().put("Carbs", "29g");
+		waffles.getNutritionFacts().put("Fat", "5g");
+		waffles.getNutritionFacts().put("Protein", "4g");
 		menuItemRepository.save(waffles);
 
 		MenuItem cereal = new MenuItem();
@@ -161,6 +211,11 @@ public class VegtaurantApplication {
 		cereal.setCategory(breakfast);
 		cereal.setAveragerating(5);
 		cereal.setTotalratings(1);
+		cereal.setNutritionFacts(new HashMap<>());
+		cereal.getNutritionFacts().put("Calories", "67");
+		cereal.getNutritionFacts().put("Carbs", "27g");
+		cereal.getNutritionFacts().put("Fat", "0g");
+		cereal.getNutritionFacts().put("Protein", "5g");
 		menuItemRepository.save(cereal);
 
 		MenuItem strawberryYogurt = new MenuItem();
@@ -172,6 +227,11 @@ public class VegtaurantApplication {
 		strawberryYogurt.setCategory(breakfast);
 		strawberryYogurt.setAveragerating(5);
 		strawberryYogurt.setTotalratings(1);
+		strawberryYogurt.setNutritionFacts(new HashMap<>());
+		strawberryYogurt.getNutritionFacts().put("Calories", "78");
+		strawberryYogurt.getNutritionFacts().put("Carbs", "9g");
+		strawberryYogurt.getNutritionFacts().put("Fat", "1g");
+		strawberryYogurt.getNutritionFacts().put("Protein", "12g");
 		menuItemRepository.save(strawberryYogurt);
 
 		MenuItem sweetBerrySmoothie = new MenuItem();
@@ -183,6 +243,11 @@ public class VegtaurantApplication {
 		sweetBerrySmoothie.setCategory(breakfast);
 		sweetBerrySmoothie.setAveragerating(5);
 		sweetBerrySmoothie.setTotalratings(1);
+		sweetBerrySmoothie.setNutritionFacts(new HashMap<>());
+		sweetBerrySmoothie.getNutritionFacts().put("Calories", "117");
+		sweetBerrySmoothie.getNutritionFacts().put("Carbs", "13g");
+		sweetBerrySmoothie.getNutritionFacts().put("Fat", "1g");
+		sweetBerrySmoothie.getNutritionFacts().put("Protein", "11g");
 		menuItemRepository.save(sweetBerrySmoothie);
 
 		MenuItem cheesyCroissantSandwich = new MenuItem();
@@ -194,6 +259,11 @@ public class VegtaurantApplication {
 		cheesyCroissantSandwich.setCategory(breakfast);
 		cheesyCroissantSandwich.setAveragerating(5);
 		cheesyCroissantSandwich.setTotalratings(1);
+		cheesyCroissantSandwich.setNutritionFacts(new HashMap<>());
+		cheesyCroissantSandwich.getNutritionFacts().put("Calories", "435");
+		cheesyCroissantSandwich.getNutritionFacts().put("Carbs", "23g");
+		cheesyCroissantSandwich.getNutritionFacts().put("Fat", "12g");
+		cheesyCroissantSandwich.getNutritionFacts().put("Protein", "10g");
 		menuItemRepository.save(cheesyCroissantSandwich);
 
 		MenuItem bagelSandwich = new MenuItem();
@@ -205,6 +275,11 @@ public class VegtaurantApplication {
 		bagelSandwich.setCategory(breakfast);
 		bagelSandwich.setAveragerating(5);
 		bagelSandwich.setTotalratings(1);
+		bagelSandwich.setNutritionFacts(new HashMap<>());
+		bagelSandwich.getNutritionFacts().put("Calories", "421");
+		bagelSandwich.getNutritionFacts().put("Carbs", "47g");
+		bagelSandwich.getNutritionFacts().put("Fat", "9g");
+		bagelSandwich.getNutritionFacts().put("Protein", "16g");
 		menuItemRepository.save(bagelSandwich);
 
 
@@ -218,6 +293,11 @@ public class VegtaurantApplication {
 		spicyPasta.setCategory(dinner);
 		spicyPasta.setAveragerating(5);
 		spicyPasta.setTotalratings(1);
+		spicyPasta.setNutritionFacts(new HashMap<>());
+		spicyPasta.getNutritionFacts().put("Calories", "307");
+		spicyPasta.getNutritionFacts().put("Carbs", "41g");
+		spicyPasta.getNutritionFacts().put("Fat", "7g");
+		spicyPasta.getNutritionFacts().put("Protein", "10g");
 		menuItemRepository.save(spicyPasta);
 
 		MenuItem spaghetti = new MenuItem();
@@ -229,6 +309,11 @@ public class VegtaurantApplication {
 		spaghetti.setCategory(dinner);
 		spaghetti.setAveragerating(5);
 		spaghetti.setTotalratings(1);
+		spaghetti.setNutritionFacts(new HashMap<>());
+		spaghetti.getNutritionFacts().put("Calories", "197");
+		spaghetti.getNutritionFacts().put("Carbs", "37g");
+		spaghetti.getNutritionFacts().put("Fat", "2g");
+		spaghetti.getNutritionFacts().put("Protein", "8g");
 		menuItemRepository.save(spaghetti);
 
 		MenuItem riceVeggieBowl = new MenuItem();
@@ -240,6 +325,11 @@ public class VegtaurantApplication {
 		riceVeggieBowl.setCategory(dinner);
 		riceVeggieBowl.setAveragerating(5);
 		riceVeggieBowl.setTotalratings(1);
+		riceVeggieBowl.setNutritionFacts(new HashMap<>());
+		riceVeggieBowl.getNutritionFacts().put("Calories", "206");
+		riceVeggieBowl.getNutritionFacts().put("Carbs", "45g");
+		riceVeggieBowl.getNutritionFacts().put("Fat", "2g");
+		riceVeggieBowl.getNutritionFacts().put("Protein", "7g");
 		menuItemRepository.save(riceVeggieBowl);
 
 		MenuItem riceBeanBowl = new MenuItem();
@@ -251,6 +341,11 @@ public class VegtaurantApplication {
 		riceBeanBowl.setCategory(dinner);
 		riceBeanBowl.setAveragerating(5);
 		riceBeanBowl.setTotalratings(1);
+		riceBeanBowl.setNutritionFacts(new HashMap<>());
+		riceBeanBowl.getNutritionFacts().put("Calories", "143");
+		riceBeanBowl.getNutritionFacts().put("Carbs", "35g");
+		riceBeanBowl.getNutritionFacts().put("Fat", "3g");
+		riceBeanBowl.getNutritionFacts().put("Protein", "16g");
 		menuItemRepository.save(riceBeanBowl);
 
 		MenuItem greenBeanBowl = new MenuItem();
@@ -262,6 +357,11 @@ public class VegtaurantApplication {
 		greenBeanBowl.setCategory(dinner);
 		greenBeanBowl.setAveragerating(5);
 		greenBeanBowl.setTotalratings(1);
+		greenBeanBowl.setNutritionFacts(new HashMap<>());
+		greenBeanBowl.getNutritionFacts().put("Calories", "31");
+		greenBeanBowl.getNutritionFacts().put("Carbs", "7g");
+		greenBeanBowl.getNutritionFacts().put("Fat", "0g");
+		greenBeanBowl.getNutritionFacts().put("Protein", "2g");
 		menuItemRepository.save(greenBeanBowl);
 
 		MenuItem saladPlate = new MenuItem();
@@ -273,6 +373,11 @@ public class VegtaurantApplication {
 		saladPlate.setCategory(dinner);
 		saladPlate.setAveragerating(5);
 		saladPlate.setTotalratings(1);
+		saladPlate.setNutritionFacts(new HashMap<>());
+		saladPlate.getNutritionFacts().put("Calories", "135");
+		saladPlate.getNutritionFacts().put("Carbs", "3g");
+		saladPlate.getNutritionFacts().put("Fat", "0g");
+		saladPlate.getNutritionFacts().put("Protein", "2g");
 		menuItemRepository.save(saladPlate);
 
 		MenuItem gourmetSoup = new MenuItem();
@@ -284,6 +389,11 @@ public class VegtaurantApplication {
 		gourmetSoup.setCategory(dinner);
 		gourmetSoup.setAveragerating(5);
 		gourmetSoup.setTotalratings(1);
+		gourmetSoup.setNutritionFacts(new HashMap<>());
+		gourmetSoup.getNutritionFacts().put("Calories", "74");
+		gourmetSoup.getNutritionFacts().put("Carbs", "16g");
+		gourmetSoup.getNutritionFacts().put("Fat", "2g");
+		gourmetSoup.getNutritionFacts().put("Protein", "7g");
 		menuItemRepository.save(gourmetSoup);
 
 		MenuItem herbalPearPizza = new MenuItem();
@@ -295,6 +405,11 @@ public class VegtaurantApplication {
 		herbalPearPizza.setCategory(dinner);
 		herbalPearPizza.setAveragerating(5);
 		herbalPearPizza.setTotalratings(1);
+		herbalPearPizza.setNutritionFacts(new HashMap<>());
+		herbalPearPizza.getNutritionFacts().put("Calories", "342");
+		herbalPearPizza.getNutritionFacts().put("Carbs", "47g");
+		herbalPearPizza.getNutritionFacts().put("Fat", "7g");
+		herbalPearPizza.getNutritionFacts().put("Protein", "9g");
 		menuItemRepository.save(herbalPearPizza);
 
 		MenuItem crispyMediterraneanPizza = new MenuItem();
@@ -306,6 +421,11 @@ public class VegtaurantApplication {
 		crispyMediterraneanPizza.setCategory(dinner);
 		crispyMediterraneanPizza.setAveragerating(5);
 		crispyMediterraneanPizza.setTotalratings(1);
+		crispyMediterraneanPizza.setNutritionFacts(new HashMap<>());
+		crispyMediterraneanPizza.getNutritionFacts().put("Calories", "326");
+		crispyMediterraneanPizza.getNutritionFacts().put("Carbs", "42g");
+		crispyMediterraneanPizza.getNutritionFacts().put("Fat", "9g");
+		crispyMediterraneanPizza.getNutritionFacts().put("Protein", "15g");
 		menuItemRepository.save(crispyMediterraneanPizza);
 
 
@@ -329,6 +449,11 @@ public class VegtaurantApplication {
 		cheeseSandwich.setCategory(dinner);
 		cheeseSandwich.setAveragerating(5);
 		cheeseSandwich.setTotalratings(1);
+		cheeseSandwich.setNutritionFacts(new HashMap<>());
+		cheeseSandwich.getNutritionFacts().put("Calories", "289");
+		cheeseSandwich.getNutritionFacts().put("Carbs", "14g");
+		cheeseSandwich.getNutritionFacts().put("Fat", "5g");
+		cheeseSandwich.getNutritionFacts().put("Protein", "4g");
 		menuItemRepository.save(cheeseSandwich);
 
 		MenuItem grilledSandwichPlatter = new MenuItem();
@@ -340,6 +465,11 @@ public class VegtaurantApplication {
 		grilledSandwichPlatter.setCategory(dinner);
 		grilledSandwichPlatter.setAveragerating(5);
 		grilledSandwichPlatter.setTotalratings(1);
+		grilledSandwichPlatter.setNutritionFacts(new HashMap<>());
+		grilledSandwichPlatter.getNutritionFacts().put("Calories", "301");
+		grilledSandwichPlatter.getNutritionFacts().put("Carbs", "22g");
+		grilledSandwichPlatter.getNutritionFacts().put("Fat", "10g");
+		grilledSandwichPlatter.getNutritionFacts().put("Protein", "11g");
 		menuItemRepository.save(grilledSandwichPlatter);
 
 
@@ -353,6 +483,11 @@ public class VegtaurantApplication {
 		strawberryPie.setCategory(desserts);
 		strawberryPie.setAveragerating(5);
 		strawberryPie.setTotalratings(1);
+		strawberryPie.setNutritionFacts(new HashMap<>());
+		strawberryPie.getNutritionFacts().put("Calories", "136");
+		strawberryPie.getNutritionFacts().put("Carbs", "41g");
+		strawberryPie.getNutritionFacts().put("Fat", "8g");
+		strawberryPie.getNutritionFacts().put("Protein", "3g");
 		menuItemRepository.save(strawberryPie);
 
 		MenuItem applePie = new MenuItem();
@@ -364,6 +499,11 @@ public class VegtaurantApplication {
 		applePie.setCategory(desserts);
 		applePie.setAveragerating(5);
 		applePie.setTotalratings(1);
+		applePie.setNutritionFacts(new HashMap<>());
+		applePie.getNutritionFacts().put("Calories", "134");
+		applePie.getNutritionFacts().put("Carbs", "39g");
+		applePie.getNutritionFacts().put("Fat", "10g");
+		applePie.getNutritionFacts().put("Protein", "3g");
 		menuItemRepository.save(applePie);
 
 		MenuItem bananaBread = new MenuItem();
@@ -375,6 +515,11 @@ public class VegtaurantApplication {
 		bananaBread.setCategory(desserts);
 		bananaBread.setAveragerating(5);
 		bananaBread.setTotalratings(1);
+		bananaBread.setNutritionFacts(new HashMap<>());
+		bananaBread.getNutritionFacts().put("Calories", "89");
+		bananaBread.getNutritionFacts().put("Carbs", "26g");
+		bananaBread.getNutritionFacts().put("Fat", "6g");
+		bananaBread.getNutritionFacts().put("Protein", "11g");
 		menuItemRepository.save(bananaBread);
 
 		MenuItem bananaPudding = new MenuItem();
@@ -386,6 +531,11 @@ public class VegtaurantApplication {
 		bananaPudding.setCategory(desserts);
 		bananaPudding.setAveragerating(5);
 		bananaPudding.setTotalratings(1);
+		bananaPudding.setNutritionFacts(new HashMap<>());
+		bananaPudding.getNutritionFacts().put("Calories", "213");
+		bananaPudding.getNutritionFacts().put("Carbs", "32g");
+		bananaPudding.getNutritionFacts().put("Fat", "6g");
+		bananaPudding.getNutritionFacts().put("Protein", "2g");
 		menuItemRepository.save(bananaPudding);
 
 		MenuItem berryCheesecake = new MenuItem();
@@ -397,6 +547,11 @@ public class VegtaurantApplication {
 		berryCheesecake.setCategory(desserts);
 		berryCheesecake.setAveragerating(5);
 		berryCheesecake.setTotalratings(1);
+		berryCheesecake.setNutritionFacts(new HashMap<>());
+		berryCheesecake.getNutritionFacts().put("Calories", "297");
+		berryCheesecake.getNutritionFacts().put("Carbs", "31g");
+		berryCheesecake.getNutritionFacts().put("Fat", "14g");
+		berryCheesecake.getNutritionFacts().put("Protein", "8g");
 		menuItemRepository.save(berryCheesecake);
 
 
@@ -410,6 +565,11 @@ public class VegtaurantApplication {
 		spinachAvocadoToast.setCategory(sides);
 		spinachAvocadoToast.setAveragerating(5);
 		spinachAvocadoToast.setTotalratings(1);
+		spinachAvocadoToast.setNutritionFacts(new HashMap<>());
+		spinachAvocadoToast.getNutritionFacts().put("Calories", "102");
+		spinachAvocadoToast.getNutritionFacts().put("Carbs", "16g");
+		spinachAvocadoToast.getNutritionFacts().put("Fat", "9g");
+		spinachAvocadoToast.getNutritionFacts().put("Protein", "4g");
 		menuItemRepository.save(spinachAvocadoToast);
 
 		MenuItem strawberryBowl = new MenuItem();
@@ -421,6 +581,11 @@ public class VegtaurantApplication {
 		strawberryBowl.setCategory(sides);
 		strawberryBowl.setAveragerating(5);
 		strawberryBowl.setTotalratings(1);
+		strawberryBowl.setNutritionFacts(new HashMap<>());
+		strawberryBowl.getNutritionFacts().put("Calories", "112");
+		strawberryBowl.getNutritionFacts().put("Carbs", "12g");
+		strawberryBowl.getNutritionFacts().put("Fat", "1g");
+		strawberryBowl.getNutritionFacts().put("Protein", "1g");
 		menuItemRepository.save(strawberryBowl);
 
 		MenuItem raspberryBowl = new MenuItem();
@@ -432,6 +597,11 @@ public class VegtaurantApplication {
 		raspberryBowl.setCategory(sides);
 		raspberryBowl.setAveragerating(5);
 		raspberryBowl.setTotalratings(1);
+		raspberryBowl.setNutritionFacts(new HashMap<>());
+		raspberryBowl.getNutritionFacts().put("Calories", "65");
+		raspberryBowl.getNutritionFacts().put("Carbs", "15g");
+		raspberryBowl.getNutritionFacts().put("Fat", "1g");
+		raspberryBowl.getNutritionFacts().put("Protein", "1g");
 		menuItemRepository.save(raspberryBowl);
 
 		MenuItem watermelonBowl = new MenuItem();
@@ -443,6 +613,11 @@ public class VegtaurantApplication {
 		watermelonBowl.setCategory(sides);
 		watermelonBowl.setAveragerating(5);
 		watermelonBowl.setTotalratings(1);
+		watermelonBowl.setNutritionFacts(new HashMap<>());
+		watermelonBowl.getNutritionFacts().put("Calories", "85");
+		watermelonBowl.getNutritionFacts().put("Carbs", "17");
+		watermelonBowl.getNutritionFacts().put("Fat", "0g");
+		watermelonBowl.getNutritionFacts().put("Protein", "2g");
 		menuItemRepository.save(watermelonBowl);
 
 		MenuItem cherryBowl = new MenuItem();
@@ -454,6 +629,11 @@ public class VegtaurantApplication {
 		cherryBowl.setCategory(sides);
 		cherryBowl.setAveragerating(5);
 		cherryBowl.setTotalratings(1);
+		cherryBowl.setNutritionFacts(new HashMap<>());
+		cherryBowl.getNutritionFacts().put("Calories", "83");
+		cherryBowl.getNutritionFacts().put("Carbs", "17");
+		cherryBowl.getNutritionFacts().put("Fat", "0g");
+		cherryBowl.getNutritionFacts().put("Protein", "1g");
 		menuItemRepository.save(cherryBowl);
 
 		MenuItem sweetPotatoFries = new MenuItem();
@@ -465,6 +645,11 @@ public class VegtaurantApplication {
 		sweetPotatoFries.setCategory(sides);
 		sweetPotatoFries.setAveragerating(5);
 		sweetPotatoFries.setTotalratings(1);
+		sweetPotatoFries.setNutritionFacts(new HashMap<>());
+		sweetPotatoFries.getNutritionFacts().put("Calories", "115");
+		sweetPotatoFries.getNutritionFacts().put("Carbs", "21g");
+		sweetPotatoFries.getNutritionFacts().put("Fat", "5g");
+		sweetPotatoFries.getNutritionFacts().put("Protein", "1g");
 		menuItemRepository.save(sweetPotatoFries);
 
 		MenuItem macncheese = new MenuItem();
@@ -476,6 +661,11 @@ public class VegtaurantApplication {
 		macncheese.setCategory(sides);
 		macncheese.setAveragerating(5);
 		macncheese.setTotalratings(1);
+		macncheese.setNutritionFacts(new HashMap<>());
+		macncheese.getNutritionFacts().put("Calories", "224");
+		macncheese.getNutritionFacts().put("Carbs", "22g");
+		macncheese.getNutritionFacts().put("Fat", "0g");
+		macncheese.getNutritionFacts().put("Protein", "13g");
 		menuItemRepository.save(macncheese);
 
 
@@ -513,6 +703,39 @@ public class VegtaurantApplication {
 		rating4.setProduct(cherryBowl);
 		productRatingRepository.save(rating4);
 
+
+
+		RestaurantRating restRating = new RestaurantRating();
+		restRating.setReviewer(acc);
+		restRating.setRating(5);
+		restRating.setMessage("My experience with Condelu has been nothing but fabulous!");
+		restaurantRating.save(restRating);
+
+		RestaurantRating restRating2 = new RestaurantRating();
+		restRating2.setReviewer(acc);
+		restRating2.setRating(5);
+		restRating2.setMessage("10/10, I would recommend eating here to any of my friends.");
+		restaurantRating.save(restRating2);
+
+		RestaurantRating restRating3 = new RestaurantRating();
+		restRating3.setReviewer(acc);
+		restRating3.setRating(5);
+		restRating3.setMessage("Are there any better vegetarian restaurants? I didn't think so.");
+		restaurantRating.save(restRating3);
+
+		RestaurantRating restRating4 = new RestaurantRating();
+		restRating4.setReviewer(acc);
+		restRating4.setRating(5);
+		restRating4.setMessage("Did you know they deliver? Not only is the food great, but it's also convenient!");
+		restaurantRating.save(restRating4);
+
+		RestaurantRating restRating5 = new RestaurantRating();
+		restRating5.setReviewer(acc);
+		restRating5.setRating(5);
+		restRating5.setMessage("I really appreciate how Condelu goes out of its way to use sustainable packaging.");
+		restaurantRating.save(restRating5);
+
+
 		RestaurantLocation location1 = new RestaurantLocation();
 		location1.setAddressLine("1234 Lorem Ipsum Lane");
 		location1.setCity("Mars");
@@ -526,10 +749,6 @@ public class VegtaurantApplication {
 		location2.setState("Texas");
 		location2.setZipCode("99999");
 		restaurantLocationRepository.save(location2);
-
-
-
-
 	}
 
 

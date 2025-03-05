@@ -117,10 +117,20 @@ function startRestaurantReviewInfiniteScroll() {
     console.log("ran");
     let root = document.getElementById("restaurant-rating-tiles-container");
     //so move the root the distance of one tile, then move that tile to the end of root. Set the pos back to 0. Continue ad infinatem
-    //one tile's width is 20vw, and the gap is 5vw between two (so use 2.5 as the actual gap)
+    //one tile's width is 20vw by default, and the gap is 5vw between two (so use 2.5 as the actual gap)
     let timeline = gsap.timeline({repeat: -1});
+    let distance = "-25vw";
+
+    if (window.matchMedia("(width <= 1000px)").matches) distance = "-30vw";
+
+    if (window.matchMedia("(width <= 750px)").matches) distance = "-40vw";
+
+    if (window.matchMedia("(width <= 600px)").matches) distance = "-50vw";
+
+    if (window.matchMedia("(width <= 475px)").matches) distance = "-75vw";
+
     timeline.to(root, {
-        x:"-25vw",
+        x:distance,
         duration: 5,
         ease: "linear",
         onComplete: () => {

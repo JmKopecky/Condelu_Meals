@@ -36,7 +36,7 @@ public class HomeController {
         this.restaurantLocationRepository = restaurantLocationRepository;
         this.placedOrderRepository = placedOrderRepository;
         this.authTokensRepository = authTokensRepository;
-        VegtaurantApplication.doDatabaseTestCase(menuCategoryRepository, menuItemRepository, featuredItemRepository, productRatingRepository, accountRepository, restaurantLocationRepository, placedOrderRepository);
+        VegtaurantApplication.doDatabaseTestCase(menuCategoryRepository, menuItemRepository, featuredItemRepository, productRatingRepository, accountRepository, restaurantLocationRepository, placedOrderRepository, restaurantRatingRepository);
         this.restaurantRatingRepository = restaurantRatingRepository;
     }
 

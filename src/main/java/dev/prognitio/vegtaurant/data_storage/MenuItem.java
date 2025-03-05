@@ -6,6 +6,8 @@ import org.hibernate.annotations.OnDeleteAction;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
 
 @Entity
 public class MenuItem {
@@ -26,6 +28,10 @@ public class MenuItem {
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private FeaturedItem deal;
+    @ElementCollection(fetch = FetchType.EAGER)
+    @MapKeyColumn(name = "name")
+    @Column(name = "value")
+    private Map<String, String> nutritionFacts = new HashMap<>();
 
 
 
@@ -65,6 +71,12 @@ public class MenuItem {
         }
 
         return output;
+    }
+
+
+
+    public void appendNutritionFacts(String... args) {
+        //todo implement
     }
 
 
@@ -124,5 +136,13 @@ public class MenuItem {
 
     public void setTag(String tag) {
         this.tag = tag;
+    }
+
+    public Map<String, String> getNutritionFacts() {
+        return nutritionFacts;
+    }
+
+    public void setNutritionFacts(Map<String, String> nutritionFacts) {
+        this.nutritionFacts = nutritionFacts;
     }
 }

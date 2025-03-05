@@ -710,6 +710,9 @@ html *::-webkit-scrollbar-button {
   margin-top: 5vh;
   gap: 8vh;
 }
+#site-content-home #restaurant-rating-display #restaurant-rating-header {
+  text-align: center;
+}
 #site-content-home #restaurant-rating-display #restaurant-rating-autoscroll-area {
   width: 90%;
   border-top: 1px solid rgba(238, 238, 238, 0.5);
@@ -773,6 +776,26 @@ html *::-webkit-scrollbar-button {
   text-align: center;
   flex-grow: 1;
   max-height: 100%;
+}
+@media (width <= 1000px) {
+  #site-content-home #restaurant-rating-display #restaurant-rating-autoscroll-area #restaurant-rating-tiles-container .restaurant-rating-tile {
+    width: 23vw;
+  }
+}
+@media (width <= 750px) {
+  #site-content-home #restaurant-rating-display #restaurant-rating-autoscroll-area #restaurant-rating-tiles-container .restaurant-rating-tile {
+    width: 33vw;
+  }
+}
+@media (width <= 600px) {
+  #site-content-home #restaurant-rating-display #restaurant-rating-autoscroll-area #restaurant-rating-tiles-container .restaurant-rating-tile {
+    width: 43vw;
+  }
+}
+@media (width <= 475px) {
+  #site-content-home #restaurant-rating-display #restaurant-rating-autoscroll-area #restaurant-rating-tiles-container .restaurant-rating-tile {
+    width: 68vw;
+  }
 }
 #site-content-home #top-ratings-display {
   width: 100%;
@@ -1074,6 +1097,10 @@ html *::-webkit-scrollbar-button {
   text-align: center;
   padding-left: 3%;
   padding-right: 3%;
+}
+#menu-item-overlay #menu-item-details-container #menu-item-desc-container #menu-item-overlay-desc {
+  overflow-y: scroll;
+  margin-bottom: 1em;
 }
 @media (width <= 1150px) {
   #menu-item-overlay #menu-item-overlay-name {
@@ -1854,6 +1881,10 @@ html *::-webkit-scrollbar-button {
   text-align: center;
   padding-left: 3%;
   padding-right: 3%;
+}
+#menu-item-overlay #menu-item-details-container #menu-item-desc-container #menu-item-overlay-desc {
+  overflow-y: scroll;
+  margin-bottom: 1em;
 }
 @media (width <= 1150px) {
   #menu-item-overlay #menu-item-overlay-name {

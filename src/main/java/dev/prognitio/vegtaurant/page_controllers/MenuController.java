@@ -141,6 +141,8 @@ public class MenuController {
                 toReturn.put("rating", target.getAveragerating());
                 toReturn.put("totalratings", target.getTotalratings());
                 toReturn.put("image", target.getIconUrl());
+                System.out.println(target.getNutritionFacts());
+                toReturn.put("nutritionfacts", target.getNutritionFacts());
             }
         }
 

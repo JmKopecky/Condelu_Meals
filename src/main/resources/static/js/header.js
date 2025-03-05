@@ -1,8 +1,9 @@
 let isMobile = true;
+let lenis;
 
 if (window.matchMedia("(pointer:fine)").matches) {
     isMobile = false;
-    const lenis = new Lenis({
+    lenis = new Lenis({
         syncTouch: true,
         duration: 1.5
     })
@@ -14,15 +15,23 @@ if (window.matchMedia("(pointer:fine)").matches) {
 }
 
 
+
 function prepareHeaderAnim() {
     gsap.set(document.getElementById("header-container"), {x: document.getElementById("header-container").getBoundingClientRect().width});
     gsap.set(document.getElementById("branding-container"), {x: -1 * document.getElementById("branding-container").getBoundingClientRect().left - document.getElementById("branding-container").getBoundingClientRect().width});
+
+    prepareTextAreas()
 }
 
 
 function headerIntroAnim() {
     gsap.to(document.getElementById("header-container"), {x: 0, duration: 0.5, ease: "power1.inout"});
     gsap.to(document.getElementById("branding-container"), {x: 0, duration: 0.5, ease: "power1.inout"});
+}
+
+
+function prepareTextAreas() {
+    
 }
 
 
