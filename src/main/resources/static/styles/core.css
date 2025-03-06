@@ -1101,6 +1101,7 @@ html *::-webkit-scrollbar-button {
 #menu-item-overlay #menu-item-details-container #menu-item-desc-container #menu-item-overlay-desc {
   overflow-y: scroll;
   margin-bottom: 1em;
+  padding: 0.25em;
 }
 @media (width <= 1150px) {
   #menu-item-overlay #menu-item-overlay-name {
@@ -1611,13 +1612,52 @@ html *::-webkit-scrollbar-button {
 
 #site-content-menu #menu-banner {
   width: 100%;
+  height: 8vh;
   padding-bottom: 5vh;
   padding-top: 10vh;
+  top: 0;
+  background: #111111;
+  z-index: 999;
   will-change: transform, opacity;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: start;
 }
 #site-content-menu #menu-banner h1 {
-  width: 100%;
   text-align: center;
+  padding-left: 5vw;
+}
+#site-content-menu #menu-banner #menu-search-bar {
+  flex: 1;
+  margin-left: 30vw;
+  margin-right: 5vw;
+  height: 100%;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: end;
+  gap: 3vw;
+}
+#site-content-menu #menu-banner #menu-search-bar #search-bar-label {
+  font-size: 2em;
+  color: #00B837;
+}
+#site-content-menu #menu-banner #menu-search-bar #search-bar-input {
+  flex: 1;
+  border-bottom: 1px solid #00B837 !important;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding: 0.5em;
+  background: none !important;
+  font-family: "Open Sans", sans;
+  outline: none !important;
+  color: #EEEEEE;
+  transition: color 1s ease-in-out;
+}
+#site-content-menu #menu-banner #menu-search-bar #search-bar-input::placeholder {
+  color: rgb(225.25, 225.25, 225.25);
 }
 #site-content-menu #menu-categories-container {
   width: 100%;
@@ -1816,6 +1856,59 @@ html *::-webkit-scrollbar-button {
 #site-content-menu #menu-items-container .menu-items .menu-item-tag .tag-items .menu-item .item-content-container .item-title {
   font-size: 1.75em;
 }
+#site-content-menu #menu-search-items-container {
+  position: fixed;
+  display: none;
+  width: 100%;
+  top: 23vh;
+  height: 77vh;
+  z-index: 999;
+  background: rgba(17, 17, 17, 0.95);
+  align-items: center;
+  justify-content: center;
+}
+#site-content-menu #menu-search-items-container #menu-search-results-container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: start;
+  overflow-y: scroll;
+  gap: 5vh;
+  width: 60%;
+  height: 70vh;
+  padding: 1em;
+  border-left: 1px solid #00B837;
+  border-right: 1px solid #00B837;
+}
+#site-content-menu #menu-search-items-container #menu-search-results-container .menu-search-result {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: start;
+  gap: 1em;
+  width: 100%;
+  height: 15vh;
+}
+#site-content-menu #menu-search-items-container #menu-search-results-container .menu-search-result .menu-search-result-image-container {
+  aspect-ratio: 3/2;
+  height: 15vh;
+  max-width: 100%;
+  border-radius: 1em;
+}
+#site-content-menu #menu-search-items-container #menu-search-results-container .menu-search-result .menu-search-result-image-container img {
+  width: 100%;
+  height: 100%;
+  border-radius: 1em;
+}
+#site-content-menu #menu-search-items-container #menu-search-results-container .menu-search-result .menu-search-result-info {
+  flex: 1;
+  height: 15vh;
+  display: flex;
+  flex-flow: column;
+  align-items: start;
+  justify-content: center;
+  gap: 1vh;
+}
 
 #menu-item-overlay {
   display: none;
@@ -1885,6 +1978,7 @@ html *::-webkit-scrollbar-button {
 #menu-item-overlay #menu-item-details-container #menu-item-desc-container #menu-item-overlay-desc {
   overflow-y: scroll;
   margin-bottom: 1em;
+  padding: 0.25em;
 }
 @media (width <= 1150px) {
   #menu-item-overlay #menu-item-overlay-name {

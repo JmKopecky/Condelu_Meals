@@ -1,18 +1,116 @@
 #site-content-menu {
   #menu-banner {
     width: 100%;
+    height: 8vh;
     padding-bottom: 5vh;
     padding-top: 10vh;
+    top: 0;
+    background: $secondary;
+    z-index: 999;
     will-change: transform, opacity;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: start;
     h1 {
-      width: 100%;
       text-align: center;
+      padding-left: 5vw;
+    }
+    #menu-search-bar {
+      flex: 1;
+      margin-left: 30vw;
+      margin-right: 5vw;
+      height: 100%;
+      display: flex;
+      flex-flow: row;
+      align-items: center;
+      justify-content: end;
+      gap: 3vw;
+
+      #search-bar-label {
+        font-size: 2em;
+        color: $accent;
+      }
+
+      #search-bar-input {
+        flex: 1;
+        border-bottom: 1px solid $accent !important;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        padding: 0.5em;
+        background: none !important;
+        font-family: $paragraphFamily;
+        outline: none !important;
+        color: $primary;
+        transition: color 1s ease-in-out;
+      }
+      #search-bar-input::placeholder {
+        color: darken($primary, 5%);
+      }
     }
   }
 
   @import 'menu/menu_category_selected';
 
   @import 'menu/menu_item_display';
+
+
+  #menu-search-items-container {
+    position: fixed;
+    display: none;
+    width: 100%;
+    top: 23vh;
+    height: 77vh;
+    z-index: 999;
+    background: transparentize($secondary, 0.05);
+    align-items: center;
+    justify-content: center;
+    #menu-search-results-container {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: start;
+      overflow-y: scroll;
+      gap: 5vh;
+      width: 60%;
+      height: 70vh;
+      padding: 1em;
+      border-left: 1px solid $accent;
+      border-right: 1px solid $accent;
+      .menu-search-result {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        justify-content: start;
+        gap: 1em;
+        width: 100%;
+        height: 15vh;
+        .menu-search-result-image-container {
+          aspect-ratio: 3/2;
+          height: 15vh;
+          max-width: 100%;
+          border-radius: 1em;
+          img {
+            width: 100%;
+            height: 100%;
+            border-radius: 1em;
+          }
+        }
+        .menu-search-result-info {
+          flex: 1;
+          height: 15vh;
+          display: flex;
+          flex-flow: column;
+          align-items: start;
+          justify-content: center;
+          gap: 1vh;
+        }
+      }
+    }
+
+
+  }
 }
 
 

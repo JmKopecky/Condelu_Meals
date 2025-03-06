@@ -107,17 +107,23 @@ public class MenuController {
     }
 
 
+    HashMap<String, Object> storedBatchItems = new HashMap<>();
+
+
 
     @PostMapping("/menu")
     public ResponseEntity<HashMap<String, Object>> getInfo(Model model, @RequestBody String data) {
         boolean isRequestForItemData = false;
         String targetItem = "";
+        boolean isBatch = false;
         try {
             ObjectMapper mapper = new ObjectMapper();
             JsonNode node = mapper.readTree(data);
             isRequestForItemData = node.get("isdatarequest").asBoolean();
-            targetItem = node.get("targetitem").asText();
-
+            isBatch = node.has("batch") && node.get("batch").asBoolean();
+            if (!isBatch) {
+                targetItem = node.get("targetitem").asText();
+            }
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -126,24 +132,41 @@ public class MenuController {
         HashMap<String, Object> toReturn = new HashMap<>();
 
         if (isRequestForItemData) {
-            for (MenuItem item : menuItemRepository.findAll()) {
-                if (item.getLabel().equals(targetItem)) {
-                    target = item;
-                    break;
+            if (!isBatch) {
+                for (MenuItem item : menuItemRepository.findAll()) {
+                    if (item.getLabel().equals(targetItem)) {
+                        target = item;
+                        break;
+                    }
+                }
+
+                if (target != null) {
+                    toReturn.put("label", target.getLabel());
+                    toReturn.put("desc", target.getDescription());
+                    toReturn.put("price", target.getActualPrice());
+                    toReturn.put("oldprice", target.getPrice());
+                    toReturn.put("rating", target.getAveragerating());
+                    toReturn.put("totalratings", target.getTotalratings());
+                    toReturn.put("image", target.getIconUrl());
+                    toReturn.put("nutritionfacts", target.getNutritionFacts());
                 }
             }
 
-            if (target != null) {
-                toReturn.put("label", target.getLabel());
-                toReturn.put("desc", target.getDescription());
-                toReturn.put("price", target.getActualPrice());
-                toReturn.put("oldprice", target.getPrice());
-                toReturn.put("rating", target.getAveragerating());
-                toReturn.put("totalratings", target.getTotalratings());
-                toReturn.put("image", target.getIconUrl());
-                System.out.println(target.getNutritionFacts());
-                toReturn.put("nutritionfacts", target.getNutritionFacts());
+            if (storedBatchItems.isEmpty()) {
+                for (MenuItem item : menuItemRepository.findAll()) {
+                    HashMap<String, Object> itemData = new HashMap<>();
+                    itemData.put("label", item.getLabel());
+                    itemData.put("desc", item.getDescription());
+                    itemData.put("price", item.getActualPrice());
+                    itemData.put("oldprice", item.getPrice());
+                    itemData.put("rating", item.getAveragerating());
+                    itemData.put("totalratings", item.getTotalratings());
+                    itemData.put("image", item.getIconUrl());
+                    itemData.put("nutritionfacts", item.getNutritionFacts());
+                    storedBatchItems.put(item.getLabel(), itemData);
+                }
             }
+            toReturn = storedBatchItems;
         }
 
         return new ResponseEntity<>(toReturn, HttpStatus.OK);
