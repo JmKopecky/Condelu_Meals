@@ -1,18 +1,4 @@
 let isMobile = true;
-let lenis;
-
-if (window.matchMedia("(pointer:fine)").matches) {
-    isMobile = false;
-    lenis = new Lenis({
-        syncTouch: true,
-        duration: 1.5
-    })
-    function raf(time) {
-        lenis.raf(time)
-        requestAnimationFrame(raf)
-    }
-    requestAnimationFrame(raf)
-}
 
 
 

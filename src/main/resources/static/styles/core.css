@@ -1617,20 +1617,25 @@ html *::-webkit-scrollbar-button {
   padding-top: 10vh;
   top: 0;
   background: #111111;
-  z-index: 999;
+  z-index: 1;
   will-change: transform, opacity;
   display: flex;
   flex-flow: row;
   align-items: center;
-  justify-content: start;
+  justify-content: space-between;
 }
 #site-content-menu #menu-banner h1 {
   text-align: center;
   padding-left: 5vw;
 }
+@media (width <= 380px) {
+  #site-content-menu #menu-banner h1 {
+    display: none;
+  }
+}
 #site-content-menu #menu-banner #menu-search-bar {
   flex: 1;
-  margin-left: 30vw;
+  margin-left: 5vw;
   margin-right: 5vw;
   height: 100%;
   display: flex;
@@ -1638,10 +1643,13 @@ html *::-webkit-scrollbar-button {
   align-items: center;
   justify-content: end;
   gap: 3vw;
+  max-width: 20em;
 }
 #site-content-menu #menu-banner #menu-search-bar #search-bar-label {
   font-size: 2em;
   color: #00B837;
+  cursor: pointer;
+  width: 1em;
 }
 #site-content-menu #menu-banner #menu-search-bar #search-bar-input {
   flex: 1;
@@ -1704,6 +1712,7 @@ html *::-webkit-scrollbar-button {
   align-items: center;
   border: #00B837 1px solid;
   transition: background 0.25s ease-in-out;
+  cursor: pointer;
 }
 #site-content-menu #menu-categories-container .menu-topic-tile h3 {
   transition: color 0.25s ease-in-out;
@@ -1862,7 +1871,7 @@ html *::-webkit-scrollbar-button {
   width: 100%;
   top: 23vh;
   height: 77vh;
-  z-index: 999;
+  z-index: 1;
   background: rgba(17, 17, 17, 0.95);
   align-items: center;
   justify-content: center;
@@ -1879,18 +1888,22 @@ html *::-webkit-scrollbar-button {
   padding: 1em;
   border-left: 1px solid #00B837;
   border-right: 1px solid #00B837;
+  overflow-x: hidden;
 }
 #site-content-menu #menu-search-items-container #menu-search-results-container .menu-search-result {
   display: flex;
   flex-flow: row;
   align-items: center;
   justify-content: start;
-  gap: 1em;
+  gap: 2vh;
   width: 100%;
   height: 15vh;
+  border-radius: 1em;
+  transition: background 0.5s ease-in-out;
+  cursor: pointer;
 }
 #site-content-menu #menu-search-items-container #menu-search-results-container .menu-search-result .menu-search-result-image-container {
-  aspect-ratio: 3/2;
+  aspect-ratio: 5/4;
   height: 15vh;
   max-width: 100%;
   border-radius: 1em;
@@ -1899,15 +1912,53 @@ html *::-webkit-scrollbar-button {
   width: 100%;
   height: 100%;
   border-radius: 1em;
+  object-fit: cover;
 }
 #site-content-menu #menu-search-items-container #menu-search-results-container .menu-search-result .menu-search-result-info {
   flex: 1;
   height: 15vh;
   display: flex;
-  flex-flow: column;
-  align-items: start;
-  justify-content: center;
-  gap: 1vh;
+  flex-flow: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: start;
+  min-width: 0;
+  overflow-y: hidden;
+}
+#site-content-menu #menu-search-items-container #menu-search-results-container .menu-search-result .menu-search-result-info .menu-search-result-info-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+#site-content-menu #menu-search-items-container #menu-search-results-container .menu-search-result .menu-search-result-info .flex-break {
+  height: 0;
+  flex-basis: 100%;
+}
+#site-content-menu #menu-search-items-container #menu-search-results-container .menu-search-result:hover {
+  background: rgb(0, 158.5, 47.3777173913);
+}
+@media (width <= 900px) {
+  #site-content-menu #menu-search-items-container #menu-search-results-container {
+    width: 80%;
+  }
+}
+@media (width <= 750px) {
+  #site-content-menu #menu-search-items-container #menu-search-results-container {
+    width: 100%;
+  }
+}
+@media (width <= 600px) {
+  #site-content-menu #menu-search-items-container .menu-search-result-info-title {
+    font-size: 2em !important;
+  }
+  #site-content-menu #menu-search-items-container .menu-search-result-image-container {
+    aspect-ratio: 4/5 !important;
+  }
+}
+@media (width <= 475px) {
+  #site-content-menu #menu-search-items-container .menu-search-result-info-title {
+    font-size: 1.5em !important;
+  }
 }
 
 #menu-item-overlay {

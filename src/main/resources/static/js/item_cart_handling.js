@@ -17,11 +17,10 @@ function hideOverlay(event, element) {
 }
 
 
-//create a lenis instance specifically for each of the scrollable areas
 
 
-function retrieveItemData(itemLabel) { //feature item customization? Not really important. Maybe notes instead?
-    fetch("/menu", {
+async function retrieveItemData(itemLabel) { //feature item customization? Not really important. Maybe notes instead?
+    const request = await fetch("menu", {
         "method": "POST",
         "body": JSON.stringify({
             "isdatarequest": true,
@@ -30,42 +29,38 @@ function retrieveItemData(itemLabel) { //feature item customization? Not really 
         "headers": {
             "Content-type": "application/json; charset=UTF-8"
         }
-    }).then((r) => {
-        r.json().then(data => {
-            let overlay = document.getElementById("menu-item-overlay");
-            overlay.setAttribute("style", "display: flex;");
-            overlay.style.opacity = "0";
-            document.getElementById("menu-item-overlay-name").textContent = data["label"];
-            document.getElementById("menu-item-overlay-rating").textContent = data["rating"] + "/5 (" + data["totalratings"] + ")";
-            document.getElementById("menu-item-overlay-image").setAttribute("src", data["image"]);
-            let description = document.getElementById("menu-item-overlay-desc");
-            let buildDescString = "" + data["desc"] + "<br/><br/>";
-            buildDescString += "<h6>Nutrition Facts</h6>";
-            console.log(data["nutritionfacts"]);
-            for (const entry in data["nutritionfacts"]) {
-                console.log(entry);
-                buildDescString += entry;
-                buildDescString += ": ";
-                buildDescString += data["nutritionfacts"][entry];
-                buildDescString += "<br/>";
-            }
-            description.innerHTML = buildDescString;
-
-            if (data["price"] === data["oldprice"]) {
-                document.getElementById("menu-item-overlay-price").textContent = "$" + data["price"];
-            } else {
-                document.getElementById("menu-item-overlay-price").textContent = "$" + data["price"] + " (Discounted from $" + data["oldprice"] + ")";
-            }
-
-            document.getElementById("menu-item-overlay-image").addEventListener("load", () => {
-                gsap.to(overlay, {
-                    opacity: 1,
-                    duration: 0.5,
-                    ease: "power1.inout"
-                })
-            })
-        });
     });
+    const data = await request.json();
+    let overlay = document.getElementById("menu-item-overlay");
+    overlay.setAttribute("style", "display: flex;");
+    overlay.style.opacity = "0";
+    document.getElementById("menu-item-overlay-name").textContent = data["label"];
+    document.getElementById("menu-item-overlay-rating").textContent = data["rating"] + "/5 (" + data["totalratings"] + ")";
+    document.getElementById("menu-item-overlay-image").setAttribute("src", data["image"]);
+    let description = document.getElementById("menu-item-overlay-desc");
+    let buildDescString = "" + data["desc"] + "<br/><br/>";
+    buildDescString += "<h6>Nutrition Facts</h6>";
+    for (const entry in data["nutritionfacts"]) {
+        buildDescString += entry;
+        buildDescString += ": ";
+        buildDescString += data["nutritionfacts"][entry];
+        buildDescString += "<br/>";
+    }
+    description.innerHTML = buildDescString;
+
+    if (data["price"] === data["oldprice"]) {
+        document.getElementById("menu-item-overlay-price").textContent = "$" + data["price"];
+    } else {
+        document.getElementById("menu-item-overlay-price").textContent = "$" + data["price"] + " (Discounted from $" + data["oldprice"] + ")";
+    }
+
+    document.getElementById("menu-item-overlay-image").addEventListener("load", () => {
+        gsap.to(overlay, {
+            opacity: 1,
+            duration: 0.5,
+            ease: "power1.inout"
+        })
+    })
 }
 
 

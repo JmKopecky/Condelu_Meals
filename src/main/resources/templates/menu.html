@@ -133,7 +133,10 @@
             <h1>Menu</h1>
             <div id="menu-search-bar">
                 <input type="text" id="search-bar-input" placeholder="Search...">
-                <label id="search-bar-label" for="search-bar-input"><i class="fa-solid fa-magnifying-glass"></i></label>
+                <label id="search-bar-label" for="search-bar-input">
+                    <i id="search-label-icon-search" class="fa-solid fa-magnifying-glass" style="display: flex;"></i>
+                    <i id="search-label-icon-close" class="fa-solid fa-xmark" style="display: none;"></i>
+                </label>
             </div>
         </div>
 
@@ -191,8 +194,6 @@
 
 <!-- scripts and files loaded last -->
 <script src="https://kit.fontawesome.com/2b6129ab2e.js" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/lenis@1.1.13/dist/lenis.css">
 
 <link rel="stylesheet" href="/styles/core.css">
 

@@ -1,6 +1,5 @@
 TODO: 
 * Add design process overview to references? Odd request but ok.
-* Search functionality (Make an overlay on menu that shows each item as a tile (possibly with image), ranked by match to search term)
 * MORE ANIMATIONS YEAHH!!!!!! "More dynamic visual elements could elevate engagement"
 * Optimize load times
 * Provide documentation on coding techniques and software used. Document design choices and coding decisions for evaluation.
@@ -80,3 +79,5 @@ Broad Technical Ideas:
 * //TODO: 2/19/25: 3 hrs (assorted improvements and bug fixes to animations and visual fidelity) PENDING WORK LOG ADDITION
 * //TODO: 2/26/25: 2 hrs (Finished testimonials, assessed new features to add)
 * //TODO: 3/5/25: 3 hrs (Made testimonial display mobile responsive, added nutritional data and functionality)
+* //TODO: 3/6/25: 4 hrs (Started adding basic search functionality to the menu page)
+* //TODO: 3/7/25: 2 hrs + after second period: (Finished search functionality, ensured it was animated and mobile responsive)

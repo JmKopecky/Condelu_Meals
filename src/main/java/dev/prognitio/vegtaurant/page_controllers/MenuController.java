@@ -149,6 +149,7 @@ public class MenuController {
                     toReturn.put("totalratings", target.getTotalratings());
                     toReturn.put("image", target.getIconUrl());
                     toReturn.put("nutritionfacts", target.getNutritionFacts());
+                    return new ResponseEntity<>(toReturn, HttpStatus.OK);
                 }
             }
 
@@ -168,6 +169,7 @@ public class MenuController {
             }
             toReturn = storedBatchItems;
         }
+
 
         return new ResponseEntity<>(toReturn, HttpStatus.OK);
     }
