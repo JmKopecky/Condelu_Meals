@@ -100,14 +100,14 @@ function registerAnimations() {
     targets.push(document.getElementById("collaborate-header"));
 
     for (const elem of targets) {
-        gsap.set(elem, {opacity:0, y:window.innerHeight / 5});
-        gsap.to(elem, {opacity: 1, y: 0, duration: 0.5, ease: "power1.inout", scrollTrigger:{trigger: elem, start: "top 90%", scrub:1, end: "top 70%"}});
+        gsap.set(elem, {opacity:0, y:window.innerHeight / 4});
+        gsap.to(elem, {opacity: 1, y: 0, duration: 0.5, ease: "power1.inout", scrollTrigger:{trigger: elem, start: "top 99%", scrub:1, end: "top 70%"}});
     }
 
-    gsap.set(document.getElementsByClassName("approaches-tile"), {y:window.innerHeight / 5, opacity:0});
+    gsap.set(document.getElementsByClassName("approaches-tile"), {y:window.innerHeight / 4, opacity:0});
     gsap.to(document.getElementsByClassName("approaches-tile"), {
         y: 0, opacity: 1, duration: 0.5, ease: "power1.inout", delay: 0.5, stagger:0.1, scrollTrigger:{
-            trigger: document.getElementById("approaches-header"), start:"top 90%", scrub:1, end: "top 70%"}});
+            trigger: document.getElementById("approaches-header"), start:"top 99%", scrub:1, end: "top 70%"}});
 
     startRestaurantReviewInfiniteScroll();
 }

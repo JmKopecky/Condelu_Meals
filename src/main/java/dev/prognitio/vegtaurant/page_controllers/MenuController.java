@@ -25,6 +25,7 @@ public class MenuController {
     private final AccountRepository accountRepository;
     private final FeaturedItemRepository featuredItemRepository;
     private final AuthTokensRepository authTokensRepository;
+    private final HashMap<String, Object> storedBatchItems = new HashMap<>();
 
     public MenuController(MenuItemRepository menuItemRepository, MenuCategoryRepository menuCategoryRepository, AccountRepository accountRepository, FeaturedItemRepository featuredItemRepository, AuthTokensRepository authTokensRepository) {
         //if encountering errors, make sure to drop both tables first.
@@ -33,6 +34,19 @@ public class MenuController {
         this.accountRepository = accountRepository;
         this.featuredItemRepository = featuredItemRepository;
         this.authTokensRepository = authTokensRepository;
+
+        for (MenuItem item : menuItemRepository.findAll()) {
+            HashMap<String, Object> itemData = new HashMap<>();
+            itemData.put("label", item.getLabel());
+            itemData.put("desc", item.getDescription());
+            itemData.put("price", item.getActualPrice());
+            itemData.put("oldprice", item.getPrice());
+            itemData.put("rating", item.getAveragerating());
+            itemData.put("totalratings", item.getTotalratings());
+            itemData.put("image", item.getIconUrl());
+            itemData.put("nutritionfacts", item.getNutritionFacts());
+            storedBatchItems.put(item.getLabel(), itemData);
+        }
     }
 
 
@@ -81,9 +95,6 @@ public class MenuController {
 
         allTagContainers.put("All", allMenuTags);
 
-
-
-
         model.addAttribute("itemsByMenuTags", allTagContainers);
 
         //I like the look of the texas roadhouse navigation for the menu, that and the dennys
@@ -107,7 +118,7 @@ public class MenuController {
     }
 
 
-    HashMap<String, Object> storedBatchItems = new HashMap<>();
+
 
 
 
@@ -153,20 +164,6 @@ public class MenuController {
                 }
             }
 
-            if (storedBatchItems.isEmpty()) {
-                for (MenuItem item : menuItemRepository.findAll()) {
-                    HashMap<String, Object> itemData = new HashMap<>();
-                    itemData.put("label", item.getLabel());
-                    itemData.put("desc", item.getDescription());
-                    itemData.put("price", item.getActualPrice());
-                    itemData.put("oldprice", item.getPrice());
-                    itemData.put("rating", item.getAveragerating());
-                    itemData.put("totalratings", item.getTotalratings());
-                    itemData.put("image", item.getIconUrl());
-                    itemData.put("nutritionfacts", item.getNutritionFacts());
-                    storedBatchItems.put(item.getLabel(), itemData);
-                }
-            }
             toReturn = storedBatchItems;
         }
 

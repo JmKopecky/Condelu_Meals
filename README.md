@@ -1,6 +1,12 @@
 TODO: 
+
 * Add design process overview to references? Odd request but ok.
 * MORE ANIMATIONS YEAHH!!!!!! "More dynamic visual elements could elevate engagement"
+    * See the gsap website for ideas
+    * Some gsap way to kind of underline the "discount of 10%" when the user reaches it, drawing attention. 
+    * Sometimes when scrolling, it is not apparent that there is more to come, which could be rectified with some kind of animation.
+      * Spiral thingy?
+    * Use Lottie and Adobe After Effects for these animations (pirate the latter). 
 * Optimize load times
 * Provide documentation on coding techniques and software used. Document design choices and coding decisions for evaluation.
 * Add rewards system
@@ -76,8 +82,9 @@ Broad Technical Ideas:
 * 12/18/24: 6 hrs (order and signon animations, bug fixes, compiled menu options)
 * 12/19/24: 4 hrs (debugged mobile layouts sitewide)
 * 1/8/25: 3 hrs (documentation, work log)
-* //TODO: 2/19/25: 3 hrs (assorted improvements and bug fixes to animations and visual fidelity) PENDING WORK LOG ADDITION
-* //TODO: 2/26/25: 2 hrs (Finished testimonials, assessed new features to add)
-* //TODO: 3/5/25: 3 hrs (Made testimonial display mobile responsive, added nutritional data and functionality)
-* //TODO: 3/6/25: 4 hrs (Started adding basic search functionality to the menu page)
-* //TODO: 3/7/25: 2 hrs + after second period: (Finished search functionality, ensured it was animated and mobile responsive)
+* 2/19/25: 3 hrs (assorted improvements and bug fixes to animations and visual fidelity)
+* 2/26/25: 2 hrs (Finished testimonials, assessed new features to add)
+* 3/5/25: 3 hrs (Made testimonial display mobile responsive, added nutritional data and functionality)
+* 3/6/25: 4 hrs (Started adding basic search functionality to the menu page)
+* 3/7/25: 6 hrs (Finished search functionality, ensured it was animated and mobile responsive)
+* 3/14/25: 1 hour (Updated work log)

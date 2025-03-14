@@ -21,13 +21,7 @@ function mobileNavAccordionClick(mode) {
 let storedItemData;
 //retreive a list of all the menu item options, then sort them by match to currentValue
 let optionTitles = [];
-for (const title of document.getElementsByClassName("item-title")) {
-    let value = title.textContent;
-    if (!optionTitles.includes(value)) {
-        optionTitles.push(value);
-    }
-}
-optionTitles.sort();
+
 
 
 async function configureSearchFunctionality() {
@@ -39,6 +33,14 @@ async function configureSearchFunctionality() {
 
     let isOpen = (searchItemsContainer.style.display === "flex");
 
+    optionTitles = [];
+    for (const title of document.getElementsByClassName("item-title")) {
+        let value = title.textContent;
+        if (!optionTitles.includes(value)) {
+            optionTitles.push(value);
+        }
+    }
+    optionTitles.sort();
 
     //logic to close the search area when the user tries to click out of it.
     searchItemsContainer.addEventListener("click", (e) => {
@@ -95,6 +97,8 @@ async function configureSearchFunctionality() {
         }
     });
     storedItemData = await request.json();
+    console.log("Retrieved images for search...");
+    console.log(storedItemData);
 
     //handle text change logic
     searchInput.addEventListener("input", () => {
