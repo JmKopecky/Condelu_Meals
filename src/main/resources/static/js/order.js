@@ -93,19 +93,6 @@ function initBillingInfo() {
         document.getElementById("billing-info-container").style.display = "flex";
         window.scrollTo(0,0);
 
-        if (account !== "noaccount") {
-            document.getElementById("billing-name-input").value = account["cardUserName"];
-            document.getElementById("billing-address-input").value = account["address"];
-            document.getElementById("billing-city-input").value = account["city"];
-            document.getElementById("billing-state-input").value = account["state"];
-            document.getElementById("billing-country-input").value = account["country"];
-            document.getElementById("billing-zip-input").value = account["zip"];
-            document.getElementById("billing-phone-input").value = account["phone"];
-            document.getElementById("billing-cardnum-input").value = account["cardNumber"];
-            document.getElementById("billing-expdate-input").value = account["expirationDate"];
-            document.getElementById("billing-seccode-input").value = account["securityCode"];
-        }
-
         gsap.set(document.getElementById("order-billing-header"), {opacity: 0,y: window.innerHeight / 5});
         gsap.to(document.getElementById("order-billing-header"), {opacity: 1, y:0,duration:0.5,ease:"power1.inout",delay:0.25});
         gsap.set(document.getElementsByClassName("billing-data"), {opacity:0,y:window.innerHeight/5});
@@ -118,7 +105,7 @@ function initBillingInfo() {
 function finalizeOrder() {
     let estimatedTime = Math.trunc(Math.random() * 10 + 5);
     document.getElementById("time-completion-estimate").textContent = estimatedTime + " Minutes";
-    if (account !== "noaccount") {
+    if (account !== null && account !== undefined && account !== "noaccount") {
         let cart = localStorage.getItem("cart");
         fetch("/order", {
             method: "POST",

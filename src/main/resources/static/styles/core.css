@@ -2340,7 +2340,7 @@ html *::-webkit-scrollbar-button {
   justify-content: center;
   gap: 5vh;
   align-items: center;
-  height: 50vh;
+  min-height: 50vh;
 }
 #site-content-order #final-order-info-display div {
   display: flex;

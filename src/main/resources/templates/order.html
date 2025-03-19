@@ -155,26 +155,26 @@
                     <label id="billing-name-label" class="label-billing">
                         Name on Card
                     </label>
-                    <input type="text" id="billing-name-input" autocomplete="cc-name">
+                    <input type="text" id="billing-name-input" autocomplete="cc-name" th:value="${name}">
                 </div>
                 <div id="billing-address-container" class="billing-data">
                     <label id="billing-address-label" class="label-billing">
                         Address
                     </label>
-                    <input type="text" id="billing-address-input" autocomplete="street-address">
+                    <input type="text" id="billing-address-input" autocomplete="street-address" th:value="${address}">
                 </div>
                 <div class="side-by-side">
                     <div id="billing-city-container" class="billing-data">
                         <label id="billing-city-label" class="label-billing">
                             City
                         </label>
-                        <input type="text" id="billing-city-input" autocomplete="address-level2">
+                        <input type="text" id="billing-city-input" autocomplete="address-level2" th:value="${city}">
                     </div>
                     <div id="billing-state-container" class="billing-data">
                         <label id="billing-state-label" class="label-billing">
                             State
                         </label>
-                        <input type="text" id="billing-state-input" autocomplete="address-level1">
+                        <input type="text" id="billing-state-input" autocomplete="address-level1" th:value="${state}">
                     </div>
                 </div>
                 <div class="side-by-side">
@@ -182,39 +182,39 @@
                         <label id="billing-country-label" class="label-billing">
                             Country
                         </label>
-                        <input type="text" id="billing-country-input" autocomplete="country-name">
+                        <input type="text" id="billing-country-input" autocomplete="country-name" th:value="${country}">
                     </div>
                     <div id="billing-zip-container" class="billing-data">
                         <label id="billing-zip-label" class="label-billing">
                             Zip
                         </label>
-                        <input type="text" id="billing-zip-input" autocomplete="postal-code">
+                        <input type="text" id="billing-zip-input" autocomplete="postal-code" th:value="${zip}">
                     </div>
                 </div>
                 <div id="billing-phone-container" class="billing-data">
                     <label id="billing-phone-label" class="label-billing">
                         Phone
                     </label>
-                    <input type="text" id="billing-phone-input" autocomplete="tel">
+                    <input type="text" id="billing-phone-input" autocomplete="tel" th:value="${phone}">
                 </div>
                 <div id="billing-cardnum-container" class="billing-data">
                     <label id="billing-cardnum-label" class="label-billing">
                         Card #
                     </label>
-                    <input type="text" id="billing-cardnum-input" autocomplete="cc-number">
+                    <input type="text" id="billing-cardnum-input" autocomplete="cc-number" th:value="${cardnum}">
                 </div>
                 <div class="side-by-side">
                     <div id="billing-expdate-container" class="billing-data">
                         <label id="billing-expdate-label" class="label-billing">
                             Expiration Date
                         </label>
-                        <input type="text" id="billing-expdate-input" autocomplete="cc-exp">
+                        <input type="text" id="billing-expdate-input" autocomplete="cc-exp" th:value="${expirdate}">
                     </div>
                     <div id="billing-seccode-container" class="billing-data">
                         <label id="billing-seccode-label" class="label-billing">
                             Security Code
                         </label>
-                        <input type="text" id="billing-seccode-input" autocomplete="cc-csc">
+                        <input type="text" id="billing-seccode-input" autocomplete="cc-csc" th:value="${securitycode}">
                     </div>
                 </div>
             </div>
@@ -228,7 +228,7 @@
                 <h3 id="order-final-header-2">Your order is being prepared.</h3>
                 <div id="order-final-time"><h5>Estimated Time To Completion:</h5><h5 id="time-completion-estimate">10 Minutes</h5></div>
             </div>
-            <div id="general-rating-panel">
+            <div id="general-rating-panel" th:if="${account != null && !account.equals('noaccount')}">
                 <h4 id="rating-order-header">Rate Your Experience</h4>
                 <div id="gen-rating-selection" class="rating-container" data-chosenrating="null">
                     <i class="fa-solid fa-star rate-star-icon" data-rating="1" onclick="generalRating(this);"></i>
@@ -242,7 +242,7 @@
                     <textarea id="site-wide-review-content" placeholder="Review us!" contenteditable="true"></textarea>
                 </div>
             </div>
-            <div id="order-review-panel" th:if="${!account.equals('noaccount')}">
+            <div id="order-review-panel" th:if="${account != null && !account.equals('noaccount')}">
                 <i class="fa-solid fa-arrow-down fa-beat"></i>
                 <div id="order-items-review-container">
 

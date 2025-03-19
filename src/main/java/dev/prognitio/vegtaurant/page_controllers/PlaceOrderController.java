@@ -41,10 +41,30 @@ public class PlaceOrderController {
         try {
             acc = AccountController.retrieveAccountFromToken(sessionToken, request.getRemoteAddr(), authTokensRepository);
             model.addAttribute("headerpicturelink", acc.getImageUrl());
-            model.addAttribute("account", acc);
+            model.addAttribute("account", "set");
+            model.addAttribute("name", acc.getName());
+            model.addAttribute("address", acc.getAddress());
+            model.addAttribute("city", acc.getCity());
+            model.addAttribute("state", acc.getState());
+            model.addAttribute("country", acc.getCountry());
+            model.addAttribute("zip", acc.getZip());
+            model.addAttribute("phone", acc.getPhone());
+            model.addAttribute("cardnum", acc.getCardNumber());
+            model.addAttribute("expirdate", acc.getExpirationDate());
+            model.addAttribute("securitycode", acc.getSecurityCode());
         } catch (AuthenticationException e) {
             model.addAttribute("headerpicturelink", "/images/default-avatar-icon.jpg");
             model.addAttribute("account", "noaccount");
+            model.addAttribute("name", "");
+            model.addAttribute("address", "");
+            model.addAttribute("city", "");
+            model.addAttribute("state", "");
+            model.addAttribute("country", "");
+            model.addAttribute("zip", "");
+            model.addAttribute("phone", "");
+            model.addAttribute("cardnum", "");
+            model.addAttribute("expirdate", "");
+            model.addAttribute("securitycode", "");
         }
 
         model.addAttribute("locations", locationRepository.findAll());

@@ -53,9 +53,40 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     ease: "power1.out",
                     duration: 0.25
                 });
+
+                //list of pages meant to hide the footer
+                let hideFooterPages = ['Order', 'Account', 'References', 'Signon'];
+                let footer = document.getElementById("footer");
+                if (hideFooterPages.includes(title)) {
+                    //hide footer
+                    if (footer !== undefined) {
+                        footer.style.display = "none";
+                    } else {
+                        //footer was not included in retrieving the page (barba is weird like that), add it.
+                        document.getElementsByTagName("body")[0].innerHTML +=
+                            `
+                            <div id="footer">
+                                <p>&copy; 2025 ConDelu Meals</p>
+                            </div>
+                            `;
+                    }
+                } else {
+                    //show footer
+                    if (footer !== undefined) {
+                        footer.style.display = "flex";
+                    } else {
+                        //footer was not included in retrieving the page (barba is weird like that), add it.
+                        document.getElementsByTagName("body")[0].innerHTML +=
+                            `
+                            <div id="footer">
+                                <p>&copy; 2025 ConDelu Meals</p>
+                            </div>
+                            `;
+                    }
+                }
+
             },
             afterEnter: (data) => {
-
                 setTimeout(() => {
                     data.next.container.getElementsByClassName("site-content")[0].style.opacity = "1";
                     gsap.to(document.getElementById("page-transition-left"), {
