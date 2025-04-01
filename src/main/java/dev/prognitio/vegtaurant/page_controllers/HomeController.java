@@ -81,7 +81,9 @@ public class HomeController {
         Calendar cal = Calendar.getInstance();
         cal.setTime(Date.from(Instant.now()));
         boolean isMonday = cal.get(Calendar.DAY_OF_WEEK) == Calendar.MONDAY;
+        boolean isThursday = cal.get(Calendar.DAY_OF_WEEK) == Calendar.THURSDAY;
         model.addAttribute("sitewidedaydiscount", isMonday);
+        model.addAttribute("isthursday", isThursday);
 
         //top n ratings
         int numRatings = 4;

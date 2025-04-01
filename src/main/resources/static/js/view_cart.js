@@ -106,11 +106,9 @@ function calculateCosts(cart) {
         let labelContainer;
         let priceContainer;
         if (window.innerWidth < 500) {
-            console.log("ran");
             labelContainer = document.createElement("h6");
             priceContainer = document.createElement("p");
         } else {
-            console.log("alsoran");
             labelContainer = document.createElement("h3");
             priceContainer = document.createElement("h4");
         }
@@ -153,7 +151,7 @@ function doCodeInputChange(val) {
             subtotal += parseFloat((priceNum * count).toFixed(2));
         }
 
-        if (val === "MONDAY") {
+        if (val === "MONDAY" || val === "THURSDAY") {
             discountElem.textContent = "$" + (subtotal * 0.1).toFixed(2);
             return;
         }

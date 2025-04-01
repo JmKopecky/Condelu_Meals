@@ -39,8 +39,11 @@ public class ViewCartController {
         Calendar cal = Calendar.getInstance();
         cal.setTime(Date.from(Instant.now()));
         boolean isMonday = cal.get(Calendar.DAY_OF_WEEK) == Calendar.MONDAY;
+        boolean isThursday = cal.get(Calendar.DAY_OF_WEEK) == Calendar.THURSDAY;
         if (isMonday) {
             model.addAttribute("defaultcode", "MONDAY");
+        } else if (isThursday) {
+            model.addAttribute("defaultcode", "THURSDAY");
         } else {
             model.addAttribute("defaultcode", "");
         }
